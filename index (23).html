@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дві Землі, Два Сонця | Two Lands, Two Suns | Dos Tierras, Dos Soles</title>
+<meta name="description" content="Асоціація українців Канарських островів — міст між українською громадою та іспанським суспільством.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #489ef7;
+  --blue-dark: #1a7ee8;
+  --blue-light: #e8f3fe;
+  --yellow: #FFD500;
+  --sun: #E8A020;
+  --warm: #F5EDD8;
+  --terra: #C4602A;
+  --dark: #111827;
+  --mid: #6B7280;
+  --muted: #9CA3AF;
+  --light: #F9FAFB;
+  --border: #E5E7EB;
+  --white: #FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:var(--dark);background:var(--white);overflow-x:hidden;}
+
+/* ── LANG SWITCHER ── */
+.lang-bar{background:var(--dark);padding:8px 40px;display:flex;justify-content:flex-end;align-items:center;gap:4px;}
+.lang-btn{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);padding:4px 12px;border-radius:20px;font-size:12px;font-family:'Inter',sans-serif;cursor:pointer;transition:.2s;font-weight:500;}
+.lang-btn:hover,.lang-btn.active{background:var(--blue);border-color:var(--blue);color:white;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{height:44px;width:auto;object-fit:contain;}
+.nav-logo-placeholder{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--yellow));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;text-align:center;line-height:1.2;padding:4px;}
+.nav-logo-text strong{display:block;font-size:13px;font-weight:700;color:var(--dark);}
+.nav-logo-text span{font-size:11px;color:var(--mid);}
+.nav-links{display:flex;gap:4px;list-style:none;}
+.nav-links a{text-decoration:none;font-size:13px;font-weight:500;color:var(--mid);padding:6px 12px;border-radius:6px;transition:.15s;}
+.nav-links a:hover{color:var(--blue);background:var(--blue-light);}
+.nav-cta{background:var(--blue)!important;color:white!important;border-radius:6px;}
+.nav-cta:hover{background:var(--blue-dark)!important;color:white!important;}
+
+/* ── SVG ICONS ── */
+.icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0;}
+.icon-lg{width:36px;height:36px;}
+.icon-xl{width:48px;height:48px;}
+
+/* ── HERO ── */
+#hero{min-height:92vh;background:linear-gradient(145deg,#0a1628 0%,#0d2347 45%,#0f2d5e 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 40px;position:relative;overflow:hidden;}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(72,158,247,.18) 0%,transparent 55%),radial-gradient(ellipse at 75% 25%,rgba(255,213,0,.1) 0%,transparent 45%);}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(72,158,247,.15);border:1px solid rgba(72,158,247,.4);color:var(--blue);padding:6px 18px;border-radius:24px;font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:28px;position:relative;}
+.hero-h1{font-size:clamp(48px,8vw,90px);font-weight:800;color:white;line-height:1.0;margin-bottom:8px;position:relative;letter-spacing:-2px;}
+.hero-h1 em{font-style:normal;color:var(--yellow);display:block;}
+.hero-sub{font-size:clamp(15px,2.2vw,20px);color:rgba(255,255,255,.65);max-width:520px;line-height:1.6;margin:20px auto 44px;font-weight:400;position:relative;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;position:relative;}
+.btn-primary{background:var(--yellow);color:var(--dark);padding:14px 32px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:.2s;border:none;cursor:pointer;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{background:var(--sun);transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,213,0,.35);}
+.btn-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,.35);padding:12px 30px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:.2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-outline:hover{border-color:white;background:rgba(255,255,255,.08);}
+.hero-stats{position:relative;display:flex;gap:56px;margin-top:64px;justify-content:center;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-size:42px;font-weight:800;color:var(--yellow);line-height:1;letter-spacing:-1px;}
+.stat-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;font-weight:500;}
+
+/* ── SECTIONS ── */
+section{padding:96px 40px;}
+.container{max-width:1160px;margin:0 auto;}
+.section-tag{display:inline-block;background:var(--blue-light);color:var(--blue);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:4px;margin-bottom:16px;}
+.section-h2{font-size:clamp(30px,4vw,48px);font-weight:800;line-height:1.1;margin-bottom:16px;letter-spacing:-1px;}
+.section-lead{font-size:17px;color:var(--mid);line-height:1.7;max-width:600px;font-weight:400;}
+.divider{width:48px;height:3px;background:linear-gradient(90deg,var(--blue) 50%,var(--yellow) 50%);border-radius:2px;margin:16px 0 32px;}
+.divider.center{margin:16px auto 32px;}
+
+/* ── ABOUT ── */
+#about{background:var(--warm);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px;}
+.value-card{background:white;padding:22px;border-radius:12px;border-left:3px solid var(--blue);}
+.value-icon-wrap{width:40px;height:40px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.value-title{font-weight:700;font-size:14px;margin-bottom:6px;}
+.value-text{font-size:13px;color:var(--mid);line-height:1.55;}
+.fact-item{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.07);}
+.fact-icon{width:36px;height:36px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.fact-text{font-size:14px;color:var(--mid);line-height:1.5;padding-top:2px;}
+.fact-text strong{color:var(--dark);}
+.vision-box{background:var(--blue);color:white;padding:36px;border-radius:16px;margin-bottom:32px;}
+.vision-box h3{font-size:22px;font-weight:700;margin-bottom:14px;}
+.vision-box p{font-size:15px;line-height:1.7;opacity:.9;}
+
+/* ── MISSION BANNER ── */
+.mission-banner{background:var(--dark);padding:72px 40px;text-align:center;}
+.mission-banner blockquote{font-size:clamp(20px,3.5vw,36px);color:white;font-style:italic;max-width:860px;margin:0 auto;line-height:1.45;font-weight:500;}
+.mission-banner blockquote span{color:var(--yellow);}
+
+/* ── TEAM ── */
+#team{background:white;}
+.president-card{background:linear-gradient(135deg,#0d2347 0%,#1a3d7c 100%);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:340px 1fr;margin-bottom:56px;}
+.president-photo-side{position:relative;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;}
+.president-photo-placeholder{position:absolute;inset:0;background:linear-gradient(180deg,rgba(72,158,247,.1) 0%,rgba(0,0,0,.5) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+.photo-placeholder-img{width:140px;height:140px;border-radius:50%;border:3px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;}
+.photo-placeholder-img svg{opacity:.6;}
+.photo-placeholder-img span{font-size:11px;color:rgba(255,255,255,.5);font-weight:500;}
+.president-name-block{position:relative;z-index:1;}
+.president-name-block h3{font-size:26px;font-weight:800;color:white;letter-spacing:-.5px;margin-bottom:4px;}
+.president-name-block p{color:rgba(255,255,255,.6);font-size:13px;font-weight:500;}
+.president-info{padding:44px;color:white;}
+.president-info-tag{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:20px;font-weight:700;}
+.president-bio{font-size:15px;line-height:1.75;opacity:.85;margin-bottom:28px;}
+.president-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.tag{background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);padding:6px 13px;border-radius:20px;font-size:12px;border:1px solid rgba(255,255,255,.2);display:inline-flex;align-items:center;gap:6px;}
+
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.team-card{background:var(--light);border-radius:16px;padding:24px;text-align:center;transition:.2s;}
+.team-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.08);}
+.team-photo-placeholder{width:80px;height:80px;border-radius:50%;border:2px dashed var(--border);background:var(--light);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 16px;cursor:pointer;gap:4px;}
+.team-photo-placeholder span{font-size:10px;color:var(--muted);}
+.team-name{font-weight:700;font-size:14px;margin-bottom:3px;}
+.team-role{font-size:12px;color:var(--mid);margin-bottom:4px;}
+.team-loc{font-size:11px;color:var(--blue);font-weight:600;display:flex;align-items:center;justify-content:center;gap:4px;}
+
+/* ── PROJECTS ── */
+#projects{background:var(--light);}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.project-card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:.25s;border:1px solid var(--border);}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.1);}
+.project-photo{height:180px;background:var(--light);border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;position:relative;}
+.project-photo svg{opacity:.3;}
+.project-photo span{font-size:12px;color:var(--muted);font-weight:500;}
+.proj-accent-blue .project-photo{background:#E8F3FE;}
+.proj-accent-warm .project-photo{background:#FEF3E8;}
+.proj-accent-green .project-photo{background:#E8FEF0;}
+.proj-accent-purple .project-photo{background:#F0E8FE;}
+.proj-accent-yellow .project-photo{background:#FEFBE8;}
+.proj-accent-teal .project-photo{background:#E8FEFE;}
+.project-body{padding:24px;}
+.project-cat{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+.project-title{font-size:18px;font-weight:700;margin-bottom:10px;line-height:1.25;letter-spacing:-.3px;}
+.project-text{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:18px;}
+.project-results{background:var(--light);border-radius:8px;padding:14px 16px;}
+.project-results-title{font-size:10px;font-weight:700;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;}
+.project-results ul{list-style:none;}
+.project-results li{font-size:12px;color:var(--dark);padding:2px 0;display:flex;align-items:center;gap:7px;}
+.check-icon{width:14px;height:14px;color:var(--blue);flex-shrink:0;}
+
+/* ── HELP ── */
+#help{background:var(--blue);}
+#help .section-h2{color:white;}
+#help .section-lead{color:rgba(255,255,255,.75);}
+#help .section-tag{background:rgba(255,255,255,.15);color:var(--yellow);}
+.help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;}
+.help-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:28px;transition:.2s;}
+.help-card:hover{background:rgba(255,255,255,.18);}
+.help-icon-wrap{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.help-title{font-size:16px;font-weight:700;color:white;margin-bottom:10px;}
+.help-text{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;}
+.help-cta{text-align:center;margin-top:52px;}
+.btn-yellow{background:var(--yellow);color:var(--dark);padding:15px 36px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:.2s;border:none;cursor:pointer;font-family:'Inter',sans-serif;}
+.btn-yellow:hover{background:var(--sun);transform:translateY(-1px);}
+
+/* ── NEWS ── */
+#news{background:white;}
+.news-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;}
+.news-card{background:var(--light);border-radius:14px;overflow:hidden;border:1px solid var(--border);transition:.2s;}
+.news-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.08);}
+.news-photo{height:180px;background:var(--light);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;border-bottom:1px solid var(--border);}
+.news-photo svg{opacity:.3;}
+.news-photo span{font-size:11px;color:var(--muted);}
+.news-card.featured .news-photo{height:240px;}
+.news-body{padding:22px;}
+.news-tag-label{display:inline-block;background:var(--yellow);color:var(--dark);font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;}
+.news-date{font-size:11px;color:var(--muted);margin-bottom:7px;font-weight:500;}
+.news-title{font-size:18px;font-weight:700;margin-bottom:10px;line-height:1.25;letter-spacing:-.3px;}
+.news-card.featured .news-title{font-size:22px;}
+.news-excerpt{font-size:13px;color:var(--mid);line-height:1.6;}
+.news-link{display:inline-flex;align-items:center;gap:5px;color:var(--blue);font-size:13px;font-weight:600;text-decoration:none;margin-top:12px;}
+
+/* ── DONATE ── */
+#donate{background:linear-gradient(135deg,#FFFBEB 0%,var(--warm) 100%);text-align:center;}
+.donate-box{max-width:660px;margin:0 auto;}
+.donate-amounts{display:flex;gap:12px;justify-content:center;margin:36px 0;flex-wrap:wrap;}
+.amount-btn{background:white;border:2px solid var(--blue);color:var(--blue);padding:12px 26px;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;transition:.2s;font-family:'Inter',sans-serif;}
+.amount-btn:hover,.amount-btn.active{background:var(--blue);color:white;}
+.donate-uses{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:36px 0;text-align:left;}
+.donate-use{background:white;border-radius:10px;padding:18px;border-top:3px solid var(--blue);}
+.donate-use-icon{width:36px;height:36px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.donate-use-title{font-weight:700;font-size:14px;margin-bottom:4px;}
+.donate-use-text{font-size:12px;color:var(--mid);}
+.iban-box{background:white;border-radius:14px;padding:26px;border:2px dashed var(--blue);margin-top:28px;text-align:left;}
+.iban-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;}
+.iban-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--light);}
+.iban-row:last-child{border:none;}
+.iban-label{font-size:13px;color:var(--mid);}
+.iban-value{font-size:13px;font-weight:700;}
+
+/* ── DOCS ── */
+#docs{background:var(--dark);}
+#docs .section-h2{color:white;}
+#docs .section-lead{color:rgba(255,255,255,.65);}
+#docs .section-tag{background:rgba(72,158,247,.2);color:var(--blue);}
+.docs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px;}
+.doc-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:26px;text-align:center;cursor:pointer;transition:.2s;}
+.doc-card:hover{background:rgba(255,255,255,.11);transform:translateY(-3px);}
+.doc-icon-wrap{width:56px;height:56px;border-radius:14px;background:rgba(72,158,247,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.doc-title{font-size:14px;font-weight:700;color:white;margin-bottom:5px;}
+.doc-sub{font-size:12px;color:rgba(255,255,255,.45);}
+.doc-status{display:inline-block;margin-top:12px;font-size:11px;padding:3px 10px;border-radius:12px;font-weight:600;}
+.doc-status.available{background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.3);color:#4ade80;}
+.doc-status.pending{background:rgba(72,158,247,.15);border:1px solid rgba(72,158,247,.3);color:var(--blue);}
+.org-info{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.org-info-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:22px;}
+.org-info-label{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:600;}
+.org-info-value{font-size:15px;font-weight:700;color:white;}
+
+/* ── PARTNERS ── */
+#partners{background:var(--light);}
+.partners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px;}
+.partner-card{background:white;border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:.2s;}
+.partner-card:hover{border-color:var(--blue);box-shadow:0 6px 20px rgba(72,158,247,.12);transform:translateY(-2px);}
+.partner-logo-placeholder{width:100%;height:70px;background:var(--light);border-radius:10px;border:2px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;}
+.partner-logo-placeholder span{font-size:10px;color:var(--muted);}
+.partner-name{font-size:14px;font-weight:700;line-height:1.3;}
+.partner-desc{font-size:12px;color:var(--mid);line-height:1.5;}
+.partner-type{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue);background:var(--blue-light);padding:3px 8px;border-radius:12px;}
+
+/* ── VOLUNTEER ── */
+#volunteer{background:white;}
+.volunteer-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.volunteer-list{list-style:none;margin:28px 0;}
+.volunteer-list li{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--light);font-size:15px;font-weight:500;}
+.vol-icon-wrap{width:36px;height:36px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.volunteer-form{background:var(--light);border-radius:20px;padding:36px;}
+.volunteer-form h3{font-size:24px;font-weight:800;margin-bottom:24px;letter-spacing:-.5px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:12px;font-weight:600;color:var(--mid);margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:2px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;background:white;color:var(--dark);outline:none;transition:.15s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);}
+.form-group textarea{min-height:80px;resize:vertical;}
+
+/* ── CONTACT ── */
+#contact{background:var(--blue);}
+#contact .section-h2{color:white;}
+#contact .section-tag{background:rgba(255,255,255,.15);color:var(--yellow);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-top:52px;}
+.contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:28px;}
+.contact-icon-wrap{width:46px;height:46px;border-radius:10px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-label{font-size:11px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;font-weight:600;}
+.contact-value{font-size:15px;font-weight:600;color:white;}
+.contact-value a{color:white;text-decoration:none;}
+.contact-value a:hover{text-decoration:underline;}
+.social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+.social-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:white;padding:9px 16px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:600;transition:.15s;}
+.social-btn:hover{background:rgba(255,255,255,.22);}
+.contact-form-side .form-group input,.contact-form-side .form-group textarea{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:white;}
+.contact-form-side .form-group input::placeholder,.contact-form-side .form-group textarea::placeholder{color:rgba(255,255,255,.4);}
+.contact-form-side .form-group label{color:rgba(255,255,255,.6);}
+
+/* ── MEDIA ── */
+#media{background:var(--warm);}
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;}
+.media-card{background:white;border-radius:14px;overflow:hidden;border:1px solid var(--border);transition:.2s;}
+.media-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.08);}
+.media-thumb{height:140px;background:var(--light);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-bottom:1px solid var(--border);}
+.media-thumb svg{opacity:.25;}
+.media-thumb span{font-size:11px;color:var(--muted);}
+.media-body{padding:20px;}
+.media-type{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--terra);margin-bottom:7px;}
+.media-title{font-size:15px;font-weight:700;margin-bottom:7px;line-height:1.3;}
+.media-source{font-size:12px;color:var(--muted);}
+.media-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12px;color:var(--blue);font-weight:600;text-decoration:none;}
+
+/* ── FOOTER ── */
+footer{background:#0a0f1e;color:rgba(255,255,255,.6);padding:60px 40px 28px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1160px;margin:0 auto;}
+.footer-logo-ph{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--yellow));display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;text-align:center;margin-bottom:16px;}
+.footer-brand p{font-size:13px;line-height:1.7;max-width:260px;margin-top:12px;}
+.footer-col h4{color:white;font-size:13px;font-weight:700;margin-bottom:14px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:7px;}
+.footer-col a{color:rgba(255,255,255,.55);text-decoration:none;font-size:13px;transition:.15s;}
+.footer-col a:hover{color:var(--yellow);}
+.footer-bottom{max-width:1160px;margin:44px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;font-size:12px;}
+.footer-nif{color:rgba(255,255,255,.25);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .about-grid,.volunteer-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
+  .president-card{grid-template-columns:1fr;}
+  .president-photo-side{min-height:280px;}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+  .projects-grid,.help-grid,.media-grid{grid-template-columns:repeat(2,1fr);}
+  .docs-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .news-grid{grid-template-columns:1fr;}
+  .donate-uses{grid-template-columns:1fr;}
+  .org-info{grid-template-columns:1fr;}
+  .partners-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  section{padding:64px 20px;}
+  .lang-bar{padding:8px 20px;}
+  .projects-grid,.help-grid,.media-grid{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+  .about-values{grid-template-columns:1fr;}
+  .hero-stats{gap:28px;}
+  .partners-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── LANG SWITCHER ── -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('uk')">🇺🇦 УКР</button>
+  <button class="lang-btn" onclick="setLang('en')">🇬🇧 ENG</button>
+  <button class="lang-btn" onclick="setLang('es')">🇪🇸 ESP</button>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <!-- LOGO: замініть src на шлях до вашого логотипу -->
+    <!-- <img src="logo.png" alt="Дві Землі Два Сонця"> -->
+    <div class="nav-logo-placeholder">ЛОГОТИП</div>
+    <div class="nav-logo-text">
+      <strong data-uk="Дві Землі, Два Сонця" data-en="Two Lands, Two Suns" data-es="Dos Tierras, Dos Soles">Дві Землі, Два Сонця</strong>
+      <span data-uk="Асоціація українців Канар" data-en="Ukrainian Association of Canaries" data-es="Asociación de ucranianos de Canarias">Асоціація українців Канар</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" data-uk="Про нас" data-en="About" data-es="Nosotros">Про нас</a></li>
+    <li><a href="#team" data-uk="Команда" data-en="Team" data-es="Equipo">Команда</a></li>
+    <li><a href="#projects" data-uk="Проєкти" data-en="Projects" data-es="Proyectos">Проєкти</a></li>
+    <li><a href="#help" data-uk="Допомога" data-en="Help" data-es="Ayuda">Допомога</a></li>
+    <li><a href="#news" data-uk="Новини" data-en="News" data-es="Noticias">Новини</a></li>
+    <li><a href="#docs" data-uk="Документи" data-en="Documents" data-es="Documentos">Документи</a></li>
+    <li><a href="#contact" data-uk="Контакти" data-en="Contact" data-es="Contacto">Контакти</a></li>
+    <li><a href="#donate" class="nav-cta" data-uk="Підтримати" data-en="Support us" data-es="Apoyar">Підтримати</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-badge">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    <span data-uk="Українська громада Канарських островів" data-en="Ukrainian Community of the Canary Islands" data-es="Comunidad Ucraniana de las Islas Canarias">Українська громада Канарських островів</span>
+  </div>
+  <h1 class="hero-h1">
+    <span data-uk="Дві Землі," data-en="Two Lands," data-es="Dos Tierras,">Дві Землі,</span>
+    <em data-uk="Два Сонця" data-en="Two Suns" data-es="Dos Soles">Два Сонця</em>
+  </h1>
+  <p class="hero-sub" data-uk="Ми — міст між Україною та Канарськими островами. Підтримуємо, об'єднуємо, захищаємо — з 2018 року." data-en="We are a bridge between Ukraine and the Canary Islands. Supporting, uniting, protecting — since 2018." data-es="Somos un puente entre Ucrania y las Islas Canarias. Apoyando, uniendo, protegiendo — desde 2018.">
+    Ми — міст між Україною та Канарськими островами.<br>Підтримуємо, об'єднуємо, захищаємо — з 2018 року.
+  </p>
+  <div class="hero-ctas">
+    <a href="#donate" class="btn-primary">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span data-uk="Підтримати нас" data-en="Support us" data-es="Apoyarnos">Підтримати нас</span>
+    </a>
+    <a href="#help" class="btn-outline">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span data-uk="Отримати допомогу" data-en="Get help" data-es="Obtener ayuda">Отримати допомогу</span>
+    </a>
+    <a href="#volunteer" class="btn-outline">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span data-uk="Долучитися" data-en="Get involved" data-es="Únete">Долучитися</span>
+    </a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">2018</div><div class="stat-label" data-uk="рік заснування" data-en="founded" data-es="fundada">рік заснування</div></div>
+    <div class="stat"><div class="stat-num">35+</div><div class="stat-label" data-uk="членів організації" data-en="members" data-es="miembros">членів організації</div></div>
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label" data-uk="напрямків діяльності" data-en="activity areas" data-es="áreas de actividad">напрямків діяльності</div></div>
+    <div class="stat"><div class="stat-num">27</div><div class="stat-label" data-uk="років досвіду на Канарах" data-en="years on the Canaries" data-es="años en Canarias">років досвіду на Канарах</div></div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="section-tag" data-uk="Про нас" data-en="About us" data-es="Sobre nosotros">Про нас</span>
+        <h2 class="section-h2" data-uk="Хто ми і для чого ми тут" data-en="Who we are and why we're here" data-es="Quiénes somos y por qué estamos aquí">Хто ми і для чого ми тут</h2>
+        <div class="divider"></div>
+        <p class="section-lead" data-uk="Асоціація «Дві Землі, Два Сонця» — провідна організація української громади на Канарських островах, заснована у 2018 році." data-en="The 'Two Lands, Two Suns' Association is the leading Ukrainian community organisation in the Canary Islands, founded in 2018." data-es="La Asociación 'Dos Tierras, Dos Soles' es la principal organización de la comunidad ucraniana en las Islas Canarias, fundada en 2018.">
+          Асоціація «Дві Землі, Два Сонця» — провідна організація української громади на Канарських островах, заснована у 2018 році.
+        </p>
+        <div class="about-values">
+          <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="value-title" data-uk="Солідарність" data-en="Solidarity" data-es="Solidaridad">Солідарність</div>
+            <div class="value-text" data-uk="Ми поруч у найскладніші моменти для кожного, хто цього потребує" data-en="We stand together in the most difficult moments for those who need it" data-es="Estamos juntos en los momentos más difíciles para quienes lo necesitan">Ми поруч у найскладніші моменти для кожного, хто цього потребує</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="value-title" data-uk="Інтеграція" data-en="Integration" data-es="Integración">Інтеграція</div>
+            <div class="value-text" data-uk="Допомагаємо знайти місце в іспанському суспільстві, не втрачаючи себе" data-en="We help find a place in Spanish society without losing one's identity" data-es="Ayudamos a encontrar un lugar en la sociedad española sin perder la identidad">Допомагаємо знайти місце в іспанському суспільстві, не втрачаючи себе</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="value-title" data-uk="Ідентичність" data-en="Identity" data-es="Identidad">Ідентичність</div>
+            <div class="value-text" data-uk="Зберігаємо мову, культуру і традиції для наступних поколінь" data-en="Preserving language, culture and traditions for future generations" data-es="Preservamos idioma, cultura y tradiciones para las generaciones futuras">Зберігаємо мову, культуру і традиції для наступних поколінь</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="value-title" data-uk="Розвиток" data-en="Development" data-es="Desarrollo">Розвиток</div>
+            <div class="value-text" data-uk="Підтримуємо жіноче лідерство, підприємництво і цифрові навички" data-en="Supporting women's leadership, entrepreneurship and digital skills" data-es="Apoyamos el liderazgo femenino, el emprendimiento y las habilidades digitales">Підтримуємо жіноче лідерство, підприємництво і цифрові навички</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="vision-box">
+          <h3 data-uk="Наша місія" data-en="Our Mission" data-es="Nuestra Misión">Наша місія</h3>
+          <p data-uk="Слугуємо мостом між українською діаспорою та іспанським суспільством. Допомагаємо мігрантам у навігації місцевими регуляціями, культурній дипломатії та побудові стійкої спільноти." data-en="We serve as a bridge between the Ukrainian diaspora and Spanish society. We help migrants navigate local regulations, engage in cultural diplomacy and build a resilient community." data-es="Servimos de puente entre la diáspora ucraniana y la sociedad española. Ayudamos a los migrantes a navegar por las regulaciones locales, la diplomacia cultural y la construcción de comunidad.">
+            Слугуємо мостом між українською діаспорою та іспанським суспільством. Допомагаємо мігрантам у навігації місцевими регуляціями, культурній дипломатії та побудові стійкої спільноти.
+          </p>
+        </div>
+        <div class="fact-item">
+          <div class="fact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="fact-text"><strong data-uk="Зареєстровано:" data-en="Registered:" data-es="Registrada:">Зареєстровано:</strong> <span data-uk="2018 | NIF: G76351097 | Статут оновлено 10 червня 2023 р." data-en="2018 | NIF: G76351097 | Statutes updated June 10, 2023" data-es="2018 | NIF: G76351097 | Estatutos actualizados el 10 de junio de 2023">2018 | NIF: G76351097 | Статут оновлено 10.06.2023</span></div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+          <div class="fact-text"><strong data-uk="Мови роботи:" data-en="Working languages:" data-es="Idiomas:">Мови роботи:</strong> <span data-uk="Українська, іспанська, англійська, польська, італійська" data-en="Ukrainian, Spanish, English, Polish, Italian" data-es="Ucraniano, español, inglés, polaco, italiano">Українська, іспанська, англійська, польська, італійська</span></div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <div class="fact-text"><strong data-uk="Членство:" data-en="Memberships:" data-es="Membresías:">Членство:</strong> WFUWO · СКУ · Федерація українських асоціацій Іспанії</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="fact-text"><strong data-uk="Адреса:" data-en="Address:" data-es="Dirección:">Адреса:</strong> Av. El Polizón 90, 2ª pl., Arinaga, Agüimes, 35118, Gran Canaria, España</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MISSION BANNER ── -->
+<div class="mission-banner">
+  <blockquote>
+    "<span data-uk="Дві землі — один народ." data-en="Two lands — one people." data-es="Dos tierras — un pueblo.">Дві землі — один народ.</span>
+    <span data-uk=" Ми будуємо майбутнє, тримаючи в серці обидва сонця." data-en=" We build the future holding both suns in our hearts." data-es=" Construimos el futuro con ambos soles en el corazón."> Ми будуємо майбутнє, тримаючи в серці <span>обидва сонця.</span>"</span>
+  </blockquote>
+</div>
+
+<!-- ── TEAM ── -->
+<section id="team">
+  <div class="container">
+    <span class="section-tag" data-uk="Команда" data-en="Team" data-es="Equipo">Команда</span>
+    <h2 class="section-h2" data-uk="Люди, які творять зміни" data-en="People who make change" data-es="Las personas que crean el cambio">Люди, які творять зміни</h2>
+    <div class="divider"></div>
+
+    <div class="president-card">
+      <div class="president-photo-side">
+        <!-- ФОТО ОЛЕСІ: замініть src на реальне фото -->
+        <div class="president-photo-placeholder">
+          <div class="photo-placeholder-img">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Фото Олесі</span>
+          </div>
+        </div>
+        <div class="president-name-block">
+          <h3>Олеся Лилак-Чижович</h3>
+          <p data-uk="Президент Асоціації · Засновниця" data-en="President of the Association · Founder" data-es="Presidenta de la Asociación · Fundadora">Президент Асоціації · Засновниця</p>
+        </div>
+      </div>
+      <div class="president-info">
+        <div class="president-info-tag" data-uk="Президент Асоціації" data-en="President of the Association" data-es="Presidenta de la Asociación">Президент Асоціації</div>
+        <p class="president-bio" data-uk="Олеся Лилак-Чижович — родом зі Львівщини, проживає на Гран Канарії понад 27 років. Засновниця та Президент Асоціації «Дві Землі, Два Сонця», офіційний член правління Світової федерації українських жіночих організацій (СФУЖО/WFUWO). Судовий перекладач та правовий експерт в іспанській системі. Організувала перше представлення українського мистецтва у Мадридському музеї Тіссен-Борнемісса (листопад 2022). Має особисту зустріч з Президентом СКУ Павлом Ґродом." data-en="Olesya Lylak-Chyzhevych is originally from the Lviv region and has been living in Gran Canaria for over 27 years. Founder and President of the 'Two Lands, Two Suns' Association, official board member of the World Federation of Ukrainian Women's Organisations (WFUWO). Court interpreter and legal expert in the Spanish system. Organised the first presentation of Ukrainian art at the Thyssen-Bornemisza Museum in Madrid (November 2022)." data-es="Olesya Lylak-Chyzhevych es originaria de la región de Lviv y lleva más de 27 años viviendo en Gran Canaria. Fundadora y Presidenta de la Asociación 'Dos Tierras, Dos Soles', miembro oficial del consejo de la Federación Mundial de Organizaciones de Mujeres Ucranianas (WFUWO). Intérprete judicial y experta legal en el sistema español.">
+          Олеся Лилак-Чижович — родом зі Львівщини, проживає на Гран Канарії понад 27 років. Засновниця та Президент Асоціації «Дві Землі, Два Сонця», офіційний член правління СФУЖО/WFUWO. Судовий перекладач та правовий експерт в іспанській системі. Організувала перше представлення українського мистецтва у музеї Тіссен-Борнемісса в Мадриді (листопад 2022).
+        </p>
+        <div class="president-tags">
+          <span class="tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>27+ <span data-uk="років на Канарах" data-en="years on Canaries" data-es="años en Canarias">років на Канарах</span></span>
+          <span class="tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span data-uk="Судовий перекладач" data-en="Court Interpreter" data-es="Intérprete judicial">Судовий перекладач</span></span>
+          <span class="tag">WFUWO · СКУ</span>
+          <span class="tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span data-uk="Культурна дипломатія" data-en="Cultural Diplomacy" data-es="Diplomacia cultural">Культурна дипломатія</span></span>
+          <span class="tag">📞 +34 660 020 482</span>
+          <span class="tag">@olesyalylak_official</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <!-- Місце для фото -->
+        <div class="team-photo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Фото</span>
+        </div>
+        <div class="team-name">Людмила Крупська</div>
+        <div class="team-role" data-uk="Віце-президентка" data-en="Vice-President" data-es="Vicepresidenta">Віце-президентка</div>
+        <div class="team-loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Santa Cruz de Tenerife
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Фото</span>
+        </div>
+        <div class="team-name">Яна Лисенко</div>
+        <div class="team-role" data-uk="Віце-президентка" data-en="Vice-President" data-es="Vicepresidenta">Віце-президентка</div>
+        <div class="team-loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Las Palmas de Gran Canaria
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Фото</span>
+        </div>
+        <div class="team-name">Надія Лилак</div>
+        <div class="team-role" data-uk="Секретар" data-en="Secretary" data-es="Secretaria">Секретар</div>
+        <div class="team-loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Gran Canaria
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Фото</span>
+        </div>
+        <div class="team-name">Крістіна Маріні</div>
+        <div class="team-role" data-uk="Скарбник" data-en="Treasurer" data-es="Tesorera">Скарбник</div>
+        <div class="team-loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Gran Canaria
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Фото</span>
+        </div>
+        <div class="team-name">Ірина Луценко</div>
+        <div class="team-role" data-uk="Радниця зі стратегічних партнерств" data-en="Strategic Partnerships Advisor" data-es="Asesora de Alianzas Estratégicas">Радниця зі стратегічних партнерств</div>
+        <div class="team-loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-uk="Координатор проєктів" data-en="Projects Coordinator" data-es="Coordinadora de proyectos">Координатор проєктів</span>
+        </div>
+      </div>
+      <div class="team-card" style="border:2px dashed var(--blue);background:var(--blue-light);">
+        <div class="team-photo-placeholder" style="border-color:var(--blue);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="team-name" style="color:var(--blue)" data-uk="Ти можеш бути тут" data-en="You could be here" data-es="Tú podrías estar aquí">Ти можеш бути тут</div>
+        <div class="team-role" data-uk="Волонтер, активіст, союзник" data-en="Volunteer, activist, ally" data-es="Voluntario, activista, aliado">Волонтер, активіст, союзник</div>
+        <a href="#volunteer" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;color:var(--blue);font-size:12px;font-weight:700;text-decoration:none;">
+          <span data-uk="Долучитися" data-en="Join us" data-es="Únete">Долучитися</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="container">
+    <span class="section-tag" data-uk="Діяльність" data-en="Our Work" data-es="Actividades">Діяльність</span>
+    <h2 class="section-h2" data-uk="Наші проєкти та ініціативи" data-en="Our projects and initiatives" data-es="Nuestros proyectos e iniciativas">Наші проєкти та ініціативи</h2>
+    <div class="divider"></div>
+    <p class="section-lead" data-uk="Кожен проєкт — це конкретні люди, яким ми допомогли, і зміни, які залишаться назавжди." data-en="Each project represents real people we have helped and changes that will last forever." data-es="Cada proyecto representa personas reales a las que hemos ayudado y cambios que perdurarán.">Кожен проєкт — це конкретні люди, яким ми допомогли, і зміни, які залишаться назавжди.</p>
+
+    <div class="projects-grid" style="margin-top:48px;">
+      <div class="project-card proj-accent-blue">
+        <div class="project-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span data-uk="Завантажити фото проєкту" data-en="Upload project photo" data-es="Subir foto del proyecto">Завантажити фото проєкту</span>
+        </div>
+        <div class="project-body">
+          <div class="project-cat" data-uk="Освіта · 2026–2027" data-en="Education · 2026–2027" data-es="Educación · 2026–2027">Освіта · 2026–2027</div>
+          <h3 class="project-title" data-uk="«Дві землі — одне серце»" data-en="'Two Lands — One Heart'" data-es="'Dos Tierras — Un Corazón'">"Дві землі — одне серце"</h3>
+          <p class="project-text" data-uk="Пілотна суботня школа для дітей 6–14 років у Севільї. 24 інтерактивні уроки українознавства на LMS-платформі, розроблені у партнерстві з МІОК." data-en="A pilot Saturday school for children aged 6-14 in Seville. 24 interactive Ukrainian studies lessons on an LMS platform, developed in partnership with IIECDR." data-es="Una escuela sabatina piloto para niños de 6 a 14 años en Sevilla. 24 lecciones interactivas de estudios ucranianos en una plataforma LMS, desarrolladas en asociación con el IIECDR.">Пілотна суботня школа для дітей 6–14 років у Севільї. 24 інтерактивні уроки на LMS-платформі.</p>
+          <div class="project-results">
+            <div class="project-results-title" data-uk="Результати" data-en="Results" data-es="Resultados">Результати</div>
+            <ul>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="40–60 дітей навчаються щотижня" data-en="40–60 children studying weekly" data-es="40–60 niños estudian semanalmente">40–60 дітей навчаються щотижня</span></li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="24 модулі на LMS-платформі" data-en="24 modules on LMS platform" data-es="24 módulos en la plataforma LMS">24 модулі на LMS-платформі</span></li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Модель для 5+ міст Іспанії" data-en="Model for 5+ cities in Spain" data-es="Modelo para 5+ ciudades de España">Модель для 5+ міст Іспанії</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card proj-accent-warm">
+        <div class="project-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C4602A" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span data-uk="Завантажити фото" data-en="Upload photo" data-es="Subir foto">Завантажити фото</span>
+        </div>
+        <div class="project-body">
+          <div class="project-cat" data-uk="Культура · 2022" data-en="Culture · 2022" data-es="Cultura · 2022">Культура · 2022</div>
+          <h3 class="project-title" data-uk="Виставка в музеї Тіссен-Борнемісса" data-en="Exhibition at Thyssen-Bornemisza" data-es="Exposición en el Thyssen-Bornemisza">Виставка в музеї Тіссен-Борнемісса</h3>
+          <p class="project-text" data-uk="Представлення українського мистецтва у Мадридському музеї 28 листопада 2022 р. з офіційним привітанням від Президента Зеленського." data-en="Presenting Ukrainian art at the Madrid museum on November 28, 2022, with an official greeting from President Zelensky." data-es="Presentación del arte ucraniano en el museo de Madrid el 28 de noviembre de 2022, con saludo oficial del Presidente Zelensky.">Представлення українського мистецтва у Мадриді (листопад 2022) з офіційним привітанням від Президента Зеленського.</p>
+          <div class="project-results">
+            <div class="project-results-title" data-uk="Результати" data-en="Results" data-es="Resultados">Результати</div>
+            <ul>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Міжнародний резонанс" data-en="International impact" data-es="Impacto internacional">Міжнародний резонанс</span></li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Нові культурні партнерства" data-en="New cultural partnerships" data-es="Nuevas alianzas culturales">Нові культурні партнерства</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card proj-accent-yellow">
+        <div class="project-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B7791F" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span data-uk="Завантажити фото" data-en="Upload photo" data-es="Subir foto">Завантажити фото</span>
+        </div>
+        <div class="project-body">
+          <div class="project-cat" data-uk="Інтеграція · Щорічно" data-en="Integration · Annual" data-es="Integración · Anual">Інтеграція · Щорічно</div>
+          <h3 class="project-title">Gran Canaria Me Gusta</h3>
+          <p class="project-text" data-uk="Участь у державних ярмарках острова у партнерстві з Cabildo de Gran Canaria та Infecar. Тисячі відвідувачів щороку." data-en="Participation in the island's state fairs in partnership with Cabildo de Gran Canaria and Infecar. Thousands of visitors each year." data-es="Participación en las ferias estatales de la isla en colaboración con Cabildo de Gran Canaria e Infecar.">Участь у державних ярмарках у партнерстві з Cabildo de Gran Canaria та Infecar.</p>
+          <div class="project-results">
+            <div class="project-results-title" data-uk="Результати" data-en="Results" data-es="Resultados">Результати</div>
+            <ul>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Партнерство з Cabildo" data-en="Partnership with Cabildo" data-es="Alianza con Cabildo">Партнерство з Cabildo</span></li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Тисячі відвідувачів" data-en="Thousands of visitors" data-es="Miles de visitantes">Тисячі відвідувачів</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card proj-accent-green">
+        <div class="project-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <span data-uk="Завантажити фото" data-en="Upload photo" data-es="Subir foto">Завантажити фото</span>
+        </div>
+        <div class="project-body">
+          <div class="project-cat" data-uk="Підприємництво · Постійно" data-en="Entrepreneurship · Ongoing" data-es="Emprendimiento · Continuo">Підприємництво · Постійно</div>
+          <h3 class="project-title" data-uk="Жіноче лідерство та підприємництво" data-en="Women's Leadership & Entrepreneurship" data-es="Liderazgo Femenino y Emprendimiento">Жіноче лідерство та підприємництво</h3>
+          <p class="project-text" data-uk="Воркшопи, менторство та цифрові навички для українських жінок-підприємців на Канарах." data-en="Workshops, mentoring and digital skills for Ukrainian women entrepreneurs in the Canaries." data-es="Talleres, mentoría y habilidades digitales para mujeres ucranianas emprendedoras en Canarias.">Воркшопи, менторство та цифрові навички для українських жінок-підприємців на Канарах.</p>
+          <div class="project-results">
+            <div class="project-results-title" data-uk="Результати" data-en="Results" data-es="Resultados">Результати</div>
+            <ul>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Сотні учасниць тренінгів" data-en="Hundreds of training participants" data-es="Cientos de participantes">Сотні учасниць тренінгів</span></li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Партнерство з ITC" data-en="Partnership with ITC" data-es="Alianza con ITC">Партнерство з ITC</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card proj-accent-purple">
+        <div class="project-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span data-uk="Завантажити фото" data-en="Upload photo" data-es="Subir foto">Завантажити фото</span>
+        </div>
+        <div class="project-body">
+          <div class="project-cat" data-uk="Допомога · З 24.02.2022" data-en="Aid · Since 24.02.2022" data-es="Ayuda · Desde 24.02.2022">Допомога · З 24.02.2022</div>
+          <h3 class="project-title" data-uk="Підтримка вимушених переселенців" data-en="Support for Displaced Persons" data-es="Apoyo a Personas Desplazadas">Підтримка вимушених переселенців</h3>
+          <p class="project-text" data-uk="З перших днів повномасштабного вторгнення — психологічна, юридична, адміністративна та гуманітарна допомога." data-en="From the first days of the full-scale invasion — psychological, legal, administrative and humanitarian assistance." data-es="Desde los primeros días de la invasión a gran escala — asistencia psicológica, legal, administrativa y humanitaria.">З перших днів вторгнення — юридична, психологічна та гуманітарна допомога переселенцям.</p>
+          <div class="project-results">
+            <div class="project-results-title" data-uk="Результати" data-en="Results" data-es="Resultados">Результати</div>
+            <ul>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Юридичні консультації" data-en="Legal consultations" data-es="Consultas legales">Юридичні консультації</span></li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Гуманітарна допомога" data-en="Humanitarian aid" data-es="Ayuda humanitaria">Гуманітарна допомога</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card proj-accent-teal">
+        <div class="project-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <span data-uk="Завантажити фото" data-en="Upload photo" data-es="Subir foto">Завантажити фото</span>
+        </div>
+        <div class="project-body">
+          <div class="project-cat" data-uk="Мережування · Постійно" data-en="Networking · Ongoing" data-es="Redes · Continuo">Мережування · Постійно</div>
+          <h3 class="project-title" data-uk="Міжнародна діаспорна мережа" data-en="International Diaspora Network" data-es="Red Internacional de la Diáspora">Міжнародна діаспорна мережа</h3>
+          <p class="project-text" data-uk="Участь у заходах СКУ та WFUWO. Міжнародна мережа: Україна, Польща, Італія. Конференції по всьому світу." data-en="Participation in SCU and WFUWO events. International network: Ukraine, Poland, Italy. Conferences worldwide." data-es="Participación en eventos del SCU y WFUWO. Red internacional: Ucrania, Polonia, Italia.">Участь у заходах СКУ та WFUWO. Міжнародна мережа: Україна, Польща, Італія.</p>
+          <div class="project-results">
+            <div class="project-results-title" data-uk="Результати" data-en="Results" data-es="Resultados">Результати</div>
+            <ul>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Член правління WFUWO" data-en="WFUWO Board Member" data-es="Miembro de la junta WFUWO">Член правління WFUWO</span></li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-uk="Партнер СКУ" data-en="SCU Partner" data-es="Socio del SCU">Партнер СКУ</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HELP ── -->
+<section id="help">
+  <div class="container">
+    <span class="section-tag" data-uk="Для вас" data-en="For you" data-es="Para usted">Для вас</span>
+    <h2 class="section-h2" data-uk="Як ми допомагаємо українцям" data-en="How we help Ukrainians" data-es="Cómo ayudamos a los ucranianos">Як ми допомагаємо українцям</h2>
+    <div class="divider"></div>
+    <p class="section-lead" data-uk="Якщо ти щойно приїхав на Канари або живеш тут давно — ми поруч." data-en="Whether you just arrived in the Canaries or have lived here for years — we are here for you." data-es="Si acabas de llegar a Canarias o llevas años viviendo aquí, estamos aquí para ti.">Якщо ти щойно приїхав на Канари або живеш тут вже давно — ми поруч.</p>
+    <div class="help-grid">
+      <div class="help-card">
+        <div class="help-icon-wrap"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div class="help-title" data-uk="Юридична допомога" data-en="Legal Assistance" data-es="Asistencia Legal">Юридична допомога</div>
+        <div class="help-text" data-uk="Консультації з питань проживання, статусу, реєстрації. Досвід судового перекладача в іспанській системі." data-en="Advice on residence, status, registration. Court interpreter experience in the Spanish system." data-es="Asesoramiento sobre residencia, estatus, registro. Experiencia como intérprete judicial en el sistema español.">Консультації з питань проживання, статусу, реєстрації, трудових прав. Досвід судового перекладача.</div>
+      </div>
+      <div class="help-card">
+        <div class="help-icon-wrap"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="help-title" data-uk="Соціальна адаптація" data-en="Social Adaptation" data-es="Adaptación Social">Соціальна адаптація</div>
+        <div class="help-text" data-uk="Допомога з пошуком житла, навігацією іспанськими регуляціями, відкриттям рахунку, документами." data-en="Help with finding housing, navigating Spanish regulations, opening an account, documents." data-es="Ayuda para encontrar vivienda, navegar por las regulaciones españolas, abrir una cuenta, documentos.">Допомога з пошуком житла, іспанськими регуляціями, відкриттям рахунку, документами.</div>
+      </div>
+      <div class="help-card">
+        <div class="help-icon-wrap"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div class="help-title" data-uk="Пошук роботи" data-en="Job Search" data-es="Búsqueda de Empleo">Пошук роботи</div>
+        <div class="help-text" data-uk="Тренінги з пошуку роботи, складання CV, підготовки до іспанського ринку праці та підприємництва." data-en="Job search training, CV writing, preparation for the Spanish labour market and entrepreneurship." data-es="Formación en búsqueda de empleo, redacción de CV, preparación para el mercado laboral español.">Тренінги з пошуку роботи, складання CV, підготовки до іспанського ринку праці.</div>
+      </div>
+      <div class="help-card">
+        <div class="help-icon-wrap"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <div class="help-title" data-uk="Освіта та мова" data-en="Education & Language" data-es="Educación e Idioma">Освіта та мова</div>
+        <div class="help-text" data-uk="Підтримка освіти дітей, ресурси для вивчення іспанської, збереження рідної мови через суботні школи." data-en="Children's education support, resources for learning Spanish, preserving native language through Saturday schools." data-es="Apoyo educativo para niños, recursos para aprender español, preservación del idioma nativo.">Підтримка освіти дітей, ресурси для вивчення іспанської, суботні школи.</div>
+      </div>
+      <div class="help-card">
+        <div class="help-icon-wrap"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="help-title" data-uk="Психологічна підтримка" data-en="Psychological Support" data-es="Apoyo Psicológico">Психологічна підтримка</div>
+        <div class="help-text" data-uk="Зв'язок зі спеціалістами, групи підтримки, ресурси для збереження ментального здоров'я." data-en="Connection to specialists, support groups, resources for maintaining mental health." data-es="Conexión con especialistas, grupos de apoyo, recursos para la salud mental.">Зв'язок зі спеціалістами, групи підтримки, ресурси для ментального здоров'я.</div>
+      </div>
+      <div class="help-card">
+        <div class="help-icon-wrap"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="help-title" data-uk="Гуманітарна допомога" data-en="Humanitarian Aid" data-es="Ayuda Humanitaria">Гуманітарна допомога</div>
+        <div class="help-text" data-uk="Координація гуманітарних ініціатив, зв'язок із партнерами, розподіл допомоги для найбільш потребуючих." data-en="Coordination of humanitarian initiatives, connection with partners, distribution of aid to those most in need." data-es="Coordinación de iniciativas humanitarias, conexión con socios, distribución de ayuda.">Координація гуманітарних ініціатив і розподіл допомоги для найбільш потребуючих.</div>
+      </div>
+    </div>
+    <div class="help-cta">
+      <a href="#contact" class="btn-yellow">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span data-uk="Зв'язатися з нами" data-en="Contact us" data-es="Contáctenos">Зв'язатися з нами для отримання допомоги</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWS ── -->
+<section id="news">
+  <div class="container">
+    <span class="section-tag" data-uk="Новини" data-en="News" data-es="Noticias">Новини</span>
+    <h2 class="section-h2" data-uk="Що відбувається" data-en="What's happening" data-es="Qué está pasando">Що відбувається</h2>
+    <div class="divider"></div>
+    <div class="news-grid" style="margin-top:48px;">
+      <div class="news-card featured">
+        <div class="news-photo" style="height:240px;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span data-uk="Завантажити фото новини" data-en="Upload news photo" data-es="Subir foto de noticia">Завантажити фото новини</span>
+        </div>
+        <div class="news-body">
+          <div class="news-tag-label" data-uk="Новий проєкт" data-en="New Project" data-es="Nuevo Proyecto">Новий проєкт</div>
+          <div class="news-date" data-uk="Червень 2026" data-en="June 2026" data-es="Junio 2026">Червень 2026</div>
+          <h3 class="news-title" data-uk="Запуск пілотної суботньої школи «Дві землі — одне серце»" data-en="Launch of the pilot Saturday school 'Two Lands — One Heart'" data-es="Lanzamiento de la escuela sabatina piloto 'Dos Tierras — Un Corazón'">Запуск пілотної суботньої школи «Дві землі — одне серце»</h3>
+          <p class="news-excerpt" data-uk="Спільно з МІОК та Асоціацією «Патріот» (Севілья) розпочинаємо унікальний освітній проєкт з LMS-платформою та 24 інтерактивними уроками для дітей 6–14 років." data-en="Together with IIECDR and the 'Patriot' Association (Seville) we are launching a unique educational project with an LMS platform and 24 interactive lessons for children aged 6-14." data-es="Junto con el IIECDR y la Asociación 'Patriot' (Sevilla) lanzamos un proyecto educativo único con plataforma LMS y 24 lecciones interactivas para niños de 6 a 14 años.">Спільно з МІОК та Асоціацією «Патріот» (Севілья) розпочинаємо унікальний освітній проєкт з LMS-платформою та 24 інтерактивними уроками.</p>
+          <a href="#" class="news-link"><span data-uk="Читати далі" data-en="Read more" data-es="Leer más">Читати далі</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="news-card" style="margin-bottom:20px;">
+          <div class="news-photo">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span data-uk="Фото" data-en="Photo" data-es="Foto">Фото</span>
+          </div>
+          <div class="news-body">
+            <div class="news-tag-label" data-uk="Грант" data-en="Grant" data-es="Subvención">Грант</div>
+            <div class="news-date" data-uk="Березень 2026" data-en="March 2026" data-es="Marzo 2026">Березень 2026</div>
+            <h3 class="news-title" style="font-size:16px;" data-uk="Подаємось на Culture Helps Solidarity 2026" data-en="Applying for Culture Helps Solidarity 2026" data-es="Solicitando Culture Helps Solidarity 2026">Подаємось на Culture Helps Solidarity 2026</h3>
+            <a href="#" class="news-link"><span data-uk="Деталі" data-en="Details" data-es="Detalles">Деталі</span> →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-photo">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span data-uk="Фото" data-en="Photo" data-es="Foto">Фото</span>
+          </div>
+          <div class="news-body">
+            <div class="news-tag-label" data-uk="Партнерство" data-en="Partnership" data-es="Alianza">Партнерство</div>
+            <div class="news-date" data-uk="Лютий 2026" data-en="February 2026" data-es="Febrero 2026">Лютий 2026</div>
+            <h3 class="news-title" style="font-size:16px;" data-uk="Семінар у Барселоні" data-en="Seminar in Barcelona" data-es="Seminario en Barcelona">Семінар у Барселоні — представлення МІОК і асоціації</h3>
+            <a href="#" class="news-link"><span data-uk="Деталі" data-en="Details" data-es="Detalles">Деталі</span> →</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="news-card" style="margin-bottom:20px;">
+          <div class="news-photo">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span data-uk="Фото" data-en="Photo" data-es="Foto">Фото</span>
+          </div>
+          <div class="news-body">
+            <div class="news-tag-label">WFUWO</div>
+            <div class="news-date">2025</div>
+            <h3 class="news-title" style="font-size:16px;" data-uk="Засідання правління WFUWO" data-en="WFUWO Board Meeting" data-es="Reunión de la junta WFUWO">Олеся Лилак-Чижович — на засіданні правління WFUWO</h3>
+            <a href="#" class="news-link"><span data-uk="Деталі" data-en="Details" data-es="Detalles">Деталі</span> →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-photo">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span data-uk="Фото" data-en="Photo" data-es="Foto">Фото</span>
+          </div>
+          <div class="news-body">
+            <div class="news-tag-label" data-uk="Культура" data-en="Culture" data-es="Cultura">Культура</div>
+            <div class="news-date" data-uk="Листопад 2022" data-en="November 2022" data-es="Noviembre 2022">Листопад 2022</div>
+            <h3 class="news-title" style="font-size:16px;" data-uk="Виставка в Мадриді" data-en="Exhibition in Madrid" data-es="Exposición en Madrid">Виставка українського мистецтва в Мадриді</h3>
+            <a href="#" class="news-link"><span data-uk="Деталі" data-en="Details" data-es="Detalles">Деталі</span> →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DONATE ── -->
+<section id="donate">
+  <div class="container">
+    <div class="donate-box">
+      <span class="section-tag" data-uk="Підтримати" data-en="Support" data-es="Apoyo">Підтримати</span>
+      <h2 class="section-h2" style="text-align:center;" data-uk="Кожне євро — це зміна" data-en="Every euro makes a difference" data-es="Cada euro marca la diferencia">Кожне євро — це зміна</h2>
+      <div class="divider center"></div>
+      <p class="section-lead" style="text-align:center;margin:0 auto;" data-uk="Ваша підтримка дозволяє нам допомагати українцям на Канарах і будувати сильнішу громаду." data-en="Your support allows us to help Ukrainians in the Canaries and build a stronger community." data-es="Su apoyo nos permite ayudar a los ucranianos en Canarias y construir una comunidad más fuerte.">Ваша підтримка дозволяє нам допомагати українцям на Канарах і будувати сильнішу громаду.</p>
+      <div class="donate-amounts">
+        <button class="amount-btn">€10</button>
+        <button class="amount-btn active">€25</button>
+        <button class="amount-btn">€50</button>
+        <button class="amount-btn">€100</button>
+        <button class="amount-btn" data-uk="Своя сума" data-en="Custom" data-es="Personalizado">Своя сума</button>
+      </div>
+      <a href="mailto:olesyalylak@gmail.com?subject=Донат" class="btn-primary" style="display:flex;justify-content:center;width:100%;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span data-uk="Підтримати асоціацію" data-en="Support the Association" data-es="Apoyar la Asociación">Підтримати асоціацію</span>
+      </a>
+      <div class="donate-uses">
+        <div class="donate-use">
+          <div class="donate-use-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="donate-use-title" data-uk="Освіта дітей" data-en="Children's Education" data-es="Educación de niños">Освіта дітей</div>
+          <div class="donate-use-text" data-uk="Суботні школи та навчальні матеріали" data-en="Saturday schools and learning materials" data-es="Escuelas sabatinas y materiales educativos">Суботні школи та навчальні матеріали</div>
+        </div>
+        <div class="donate-use">
+          <div class="donate-use-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="donate-use-title" data-uk="Юридична допомога" data-en="Legal Assistance" data-es="Asistencia Legal">Юридична допомога</div>
+          <div class="donate-use-text" data-uk="Консультації та захист прав мігрантів" data-en="Consultations and protection of migrants' rights" data-es="Consultas y protección de los derechos de los migrantes">Консультації та захист прав мігрантів</div>
+        </div>
+        <div class="donate-use">
+          <div class="donate-use-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="donate-use-title" data-uk="Культурні події" data-en="Cultural Events" data-es="Eventos Culturales">Культурні події</div>
+          <div class="donate-use-text" data-uk="Заходи та збереження ідентичності" data-en="Events and identity preservation" data-es="Eventos y preservación de la identidad">Заходи та збереження ідентичності</div>
+        </div>
+      </div>
+      <div class="iban-box">
+        <div class="iban-title" data-uk="Банківські реквізити" data-en="Bank Details" data-es="Datos bancarios">Банківські реквізити</div>
+        <div class="iban-row"><span class="iban-label" data-uk="Назва організації" data-en="Organisation name" data-es="Nombre de la organización">Назва організації</span><span class="iban-value">UCRANIA EN CANARIAS POR LA AMISTAD</span></div>
+        <div class="iban-row"><span class="iban-label">NIF</span><span class="iban-value">G76351097</span></div>
+        <div class="iban-row"><span class="iban-label" data-uk="Email для підтвердження" data-en="Confirmation email" data-es="Email de confirmación">Email для підтвердження</span><span class="iban-value">olesyalylak@gmail.com</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DOCS ── -->
+<section id="docs">
+  <div class="container">
+    <span class="section-tag" data-uk="Прозорість" data-en="Transparency" data-es="Transparencia">Прозорість</span>
+    <h2 class="section-h2" data-uk="Документи та звітність" data-en="Documents & Reports" data-es="Documentos e Informes">Документи та звітність</h2>
+    <div class="divider"></div>
+    <p class="section-lead" data-uk="Ми відкриті перед нашою громадою, донорами та партнерами." data-en="We are open to our community, donors and partners." data-es="Somos transparentes con nuestra comunidad, donantes y socios.">Ми відкриті перед нашою громадою, донорами та партнерами. Прозорість — це наш обов'язок.</p>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <div class="doc-icon-wrap"><svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="doc-title" data-uk="Статут асоціації" data-en="Association Statute" data-es="Estatutos de la Asociación">Статут асоціації</div>
+        <div class="doc-sub">Estatutos Sociales · 2023</div>
+        <div class="doc-status available" data-uk="Доступно" data-en="Available" data-es="Disponible">Доступно</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon-wrap"><svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="doc-title" data-uk="Свідоцтво про реєстрацію" data-en="Registration Certificate" data-es="Certificado de Registro">Свідоцтво про реєстрацію</div>
+        <div class="doc-sub">NIF: G76351097</div>
+        <div class="doc-status available" data-uk="Доступно" data-en="Available" data-es="Disponible">Доступно</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon-wrap"><svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="1.5"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <div class="doc-title" data-uk="Фінансовий звіт 2024" data-en="Financial Report 2024" data-es="Informe Financiero 2024">Фінансовий звіт 2024</div>
+        <div class="doc-sub" data-uk="Річний фінансовий звіт" data-en="Annual financial report" data-es="Informe financiero anual">Річний фінансовий звіт</div>
+        <div class="doc-status pending" data-uk="В підготовці" data-en="In preparation" data-es="En preparación">В підготовці</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon-wrap"><svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="doc-title" data-uk="Річний звіт 2024" data-en="Annual Report 2024" data-es="Informe Anual 2024">Річний звіт 2024</div>
+        <div class="doc-sub" data-uk="Звіт про діяльність" data-en="Activity report" data-es="Informe de actividades">Звіт про діяльність</div>
+        <div class="doc-status pending" data-uk="В підготовці" data-en="In preparation" data-es="En preparación">В підготовці</div>
+      </div>
+    </div>
+    <div class="org-info">
+      <div class="org-info-card">
+        <div class="org-info-label" data-uk="Офіційна назва" data-en="Official Name" data-es="Nombre oficial">Офіційна назва</div>
+        <div class="org-info-value">UCRANIA EN CANARIAS POR LA AMISTAD: DOS TIERRAS DOS SOLES</div>
+      </div>
+      <div class="org-info-card">
+        <div class="org-info-label">NIF</div>
+        <div class="org-info-value">G76351097</div>
+      </div>
+      <div class="org-info-card">
+        <div class="org-info-label">PIC (Erasmus+ / EU)</div>
+        <div class="org-info-value">867216861</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERS ── -->
+<section id="partners">
+  <div class="container">
+    <span class="section-tag" data-uk="Партнери" data-en="Partners" data-es="Socios">Партнери</span>
+    <h2 class="section-h2" data-uk="Разом ми сильніші" data-en="Together we are stronger" data-es="Juntos somos más fuertes">Разом ми сильніші</h2>
+    <div class="divider"></div>
+    <p class="section-lead" data-uk="Наші партнери — інституції та організації, які поділяють наші цінності." data-en="Our partners are institutions and organisations that share our values." data-es="Nuestros socios son instituciones y organizaciones que comparten nuestros valores.">Наші партнери — інституції та організації, які поділяють наші цінності та підсилюють наш вплив.</p>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-logo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span data-uk="Логотип партнера" data-en="Partner logo" data-es="Logo del socio">Логотип партнера</span>
+        </div>
+        <div class="partner-type" data-uk="Місцева влада" data-en="Local Government" data-es="Gobierno local">Місцева влада</div>
+        <div class="partner-name">Cabildo de Gran Canaria</div>
+        <div class="partner-desc" data-uk="Стратегічне партнерство з урядом острова Гран Канарія" data-en="Strategic partnership with the Government of Gran Canaria" data-es="Alianza estratégica con el Gobierno de Gran Canaria">Стратегічне партнерство з урядом острова Гран Канарія</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span data-uk="Логотип партнера" data-en="Partner logo" data-es="Logo del socio">Логотип партнера</span>
+        </div>
+        <div class="partner-type" data-uk="Технологічний інститут" data-en="Technology Institute" data-es="Instituto Tecnológico">Технологічний інститут</div>
+        <div class="partner-name">ITC — Instituto Tecnológico de Canarias</div>
+        <div class="partner-desc" data-uk="Партнерство у сфері цифрових навичок та технологій" data-en="Partnership in digital skills and technology" data-es="Alianza en habilidades digitales y tecnología">Партнерство у сфері цифрових навичок та технологій</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span data-uk="Логотип партнера" data-en="Partner logo" data-es="Logo del socio">Логотип партнера</span>
+        </div>
+        <div class="partner-type" data-uk="Міжнародна торгівля" data-en="International Trade" data-es="Comercio Internacional">Міжнародна торгівля</div>
+        <div class="partner-name">Infecar</div>
+        <div class="partner-desc" data-uk="Співпраця на державних ярмарках та виставках" data-en="Cooperation at state fairs and exhibitions" data-es="Cooperación en ferias estatales y exposiciones">Співпраця на державних ярмарках та виставках</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span data-uk="Логотип партнера" data-en="Partner logo" data-es="Logo del socio">Логотип партнера</span>
+        </div>
+        <div class="partner-type" data-uk="Міжнародна організація" data-en="International Organisation" data-es="Organización Internacional">Міжнародна організація</div>
+        <div class="partner-name">WFUWO / СФУЖО</div>
+        <div class="partner-desc" data-uk="Член правління Світової федерації українських жіночих організацій" data-en="Board member of the World Federation of Ukrainian Women's Organisations" data-es="Miembro del consejo de la Federación Mundial de Organizaciones de Mujeres Ucranianas">Член правління СФУЖО</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span data-uk="Логотип партнера" data-en="Partner logo" data-es="Logo del socio">Логотип партнера</span>
+        </div>
+        <div class="partner-type" data-uk="Діаспорна організація" data-en="Diaspora Organisation" data-es="Organización de la Diáspora">Діаспорна організація</div>
+        <div class="partner-name">Світовий Конґрес Українців (СКУ)</div>
+        <div class="partner-desc" data-uk="Партнер та члени глобальної мережі українства" data-en="Partner and members of the global Ukrainian network" data-es="Socio y miembros de la red global ucraniana">Партнер глобальної мережі українства</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span data-uk="Логотип партнера" data-en="Partner logo" data-es="Logo del socio">Логотип партнера</span>
+        </div>
+        <div class="partner-type" data-uk="Академічний партнер" data-en="Academic Partner" data-es="Socio Académico">Академічний партнер</div>
+        <div class="partner-name">МІОК / НУ «Львівська політехніка»</div>
+        <div class="partner-desc" data-uk="Розробка навчальних матеріалів та академічна підтримка" data-en="Development of teaching materials and academic support" data-es="Desarrollo de materiales didácticos y apoyo académico">Розробка навчальних матеріалів та академічна підтримка</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VOLUNTEER ── -->
+<section id="volunteer">
+  <div class="container">
+    <div class="volunteer-grid">
+      <div>
+        <span class="section-tag" data-uk="Долучитися" data-en="Get Involved" data-es="Involúcrate">Долучитися</span>
+        <h2 class="section-h2" data-uk="Стань частиною громади" data-en="Become part of the community" data-es="Sé parte de la comunidad">Стань частиною громади</h2>
+        <div class="divider"></div>
+        <p class="section-lead" data-uk="Наша сила — у людях. Кожен, хто долучається, робить асоціацію сильнішою." data-en="Our strength lies in people. Everyone who joins makes the association stronger." data-es="Nuestra fuerza está en las personas. Todos los que se unen hacen más fuerte a la asociación.">Наша сила — у людях. Кожен, хто долучається, робить асоціацію сильнішою.</p>
+        <ul class="volunteer-list">
+          <li>
+            <div class="vol-icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <span data-uk="Волонтери для культурних заходів та суботньої школи" data-en="Volunteers for cultural events and Saturday school" data-es="Voluntarios para eventos culturales y escuela sabatina">Волонтери для культурних заходів та суботньої школи</span>
+          </li>
+          <li>
+            <div class="vol-icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/><path d="M2 12h20"/></svg></div>
+            <span data-uk="Перекладачі (українська, іспанська, англійська)" data-en="Translators (Ukrainian, Spanish, English)" data-es="Traductores (ucraniano, español, inglés)">Перекладачі (українська, іспанська, англійська)</span>
+          </li>
+          <li>
+            <div class="vol-icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+            <span data-uk="Фахівці з PR та соціальних мереж" data-en="PR and social media specialists" data-es="Especialistas en PR y redes sociales">Фахівці з PR та соціальних мереж</span>
+          </li>
+          <li>
+            <div class="vol-icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <span data-uk="Юристи та правові консультанти" data-en="Lawyers and legal consultants" data-es="Abogados y consultores legales">Юристи та правові консультанти</span>
+          </li>
+          <li>
+            <div class="vol-icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#489ef7" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+            <span data-uk="Вчителі та методисти для освітніх програм" data-en="Teachers and methodologists for educational programmes" data-es="Maestros y metodólogos para programas educativos">Вчителі та методисти для освітніх програм</span>
+          </li>
+        </ul>
+        <a href="mailto:olesyalylak@gmail.com?subject=Волонтерство" class="btn-primary">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span data-uk="Написати нам" data-en="Write to us" data-es="Escríbanos">Написати нам</span>
+        </a>
+      </div>
+      <div class="volunteer-form">
+        <h3 data-uk="Залиш свої контакти" data-en="Leave your contacts" data-es="Deja tus contactos">Залиш свої контакти</h3>
+        <div class="form-group">
+          <label data-uk="Ім'я та прізвище" data-en="Full name" data-es="Nombre completo">Ім'я та прізвище</label>
+          <input type="text" placeholder="Ольга Коваленко">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="olha@example.com">
+        </div>
+        <div class="form-group">
+          <label data-uk="Як можеш допомогти?" data-en="How can you help?" data-es="¿Cómo puedes ayudar?">Як можеш допомогти?</label>
+          <select>
+            <option data-uk="Волонтер на заходах" data-en="Event volunteer" data-es="Voluntario en eventos">Волонтер на заходах</option>
+            <option data-uk="Перекладач" data-en="Translator" data-es="Traductor">Перекладач</option>
+            <option>PR / SMM</option>
+            <option data-uk="Юридичний консультант" data-en="Legal consultant" data-es="Consultor legal">Юридичний консультант</option>
+            <option data-uk="Вчитель / Методист" data-en="Teacher / Methodologist" data-es="Maestro / Metodólogo">Вчитель / Методист</option>
+            <option data-uk="Інше" data-en="Other" data-es="Otro">Інше</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-uk="Розкажи про себе" data-en="Tell us about yourself" data-es="Cuéntanos sobre ti">Розкажи про себе</label>
+          <textarea placeholder="Коротко: хто ти, де живеш, як хочеш допомогти..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;border:none;justify-content:center;" onclick="alert('Дякуємо! Ми зв\'яжемось з вами найближчим часом.')">
+          <span data-uk="Надіслати" data-en="Send" data-es="Enviar">Надіслати</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <span class="section-tag" data-uk="Контакти" data-en="Contact" data-es="Contacto">Контакти</span>
+    <h2 class="section-h2" data-uk="Зв'яжіться з нами" data-en="Get in touch" data-es="Póngase en contacto">Зв'яжіться з нами</h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="contact-label" data-uk="Адреса" data-en="Address" data-es="Dirección">Адреса</div>
+            <div class="contact-value">Av. El Polizón 90, 2ª pl., Arinaga<br>Agüimes, 35118, Gran Canaria, España</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <div class="contact-label" data-uk="Телефон (Олеся Лилак-Чижович, Президент Асоціації)" data-en="Phone (Olesya Lylak-Chyzhevych, President)" data-es="Teléfono (Olesya Lylak-Chyzhevych, Presidenta)">Телефон (Президент Асоціації)</div>
+            <div class="contact-value"><a href="tel:+34660020482">+34 660 020 482</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:olesyalylak@gmail.com">olesyalylak@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div>
+            <div class="contact-label" data-uk="Координатор проєктів (Ірина Луценко)" data-en="Projects Coordinator (Iryna Lutsenko)" data-es="Coordinadora de Proyectos (Iryna Lutsenko)">Координатор проєктів</div>
+            <div class="contact-value"><a href="mailto:irenlutsen@gmail.com">irenlutsen@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/ucranianos_en_canarias" target="_blank" class="social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @ucranianos_en_canarias
+          </a>
+          <a href="https://www.instagram.com/olesyalylak_official" target="_blank" class="social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @olesyalylak_official
+          </a>
+          <a href="https://www.facebook.com/2tierras2soles" target="_blank" class="social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://t.me/asociaciya_ukrainciv_grancanaria" target="_blank" class="social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Telegram UA
+          </a>
+          <a href="https://youtube.com/@user-kf9lh4hg9i" target="_blank" class="social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            YouTube
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-side">
+        <div class="form-group">
+          <label data-uk="Ваше ім'я" data-en="Your name" data-es="Su nombre">Ваше ім'я</label>
+          <input type="text" placeholder="Ім'я та прізвище">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label data-uk="Повідомлення" data-en="Message" data-es="Mensaje">Повідомлення</label>
+          <textarea style="min-height:140px;" placeholder="Ваш запит або запитання..."></textarea>
+        </div>
+        <button class="btn-yellow" style="width:100%;border:none;justify-content:center;" onclick="alert('Дякуємо!')">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <span data-uk="Надіслати повідомлення" data-en="Send message" data-es="Enviar mensaje">Надіслати повідомлення</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <!-- Логотип у футері -->
+      <div class="footer-logo-ph">LOGO</div>
+      <strong style="color:white;font-size:15px;font-weight:700;" data-uk="Дві Землі, Два Сонця" data-en="Two Lands, Two Suns" data-es="Dos Tierras, Dos Soles">Дві Землі, Два Сонця</strong>
+      <p data-uk="Слугуємо мостом між українською діаспорою та іспанським суспільством з 2018 року. Гран Канарія · Тенерифе · Іспанія." data-en="Serving as a bridge between the Ukrainian diaspora and Spanish society since 2018. Gran Canaria · Tenerife · Spain." data-es="Sirviendo de puente entre la diáspora ucraniana y la sociedad española desde 2018. Gran Canaria · Tenerife · España.">Слугуємо мостом між українською діаспорою та іспанським суспільством з 2018 року. Гран Канарія · Тенерифе · Іспанія.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-uk="Організація" data-en="Organisation" data-es="Organización">Організація</h4>
+      <ul>
+        <li><a href="#about" data-uk="Про нас" data-en="About us" data-es="Sobre nosotros">Про нас</a></li>
+        <li><a href="#team" data-uk="Команда" data-en="Team" data-es="Equipo">Команда</a></li>
+        <li><a href="#projects" data-uk="Проєкти" data-en="Projects" data-es="Proyectos">Проєкти</a></li>
+        <li><a href="#docs" data-uk="Документи" data-en="Documents" data-es="Documentos">Документи</a></li>
+        <li><a href="#partners" data-uk="Партнери" data-en="Partners" data-es="Socios">Партнери</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-uk="Для вас" data-en="For you" data-es="Para usted">Для вас</h4>
+      <ul>
+        <li><a href="#help" data-uk="Отримати допомогу" data-en="Get help" data-es="Obtener ayuda">Отримати допомогу</a></li>
+        <li><a href="#volunteer" data-uk="Стати волонтером" data-en="Become a volunteer" data-es="Ser voluntario">Стати волонтером</a></li>
+        <li><a href="#donate" data-uk="Підтримати" data-en="Support us" data-es="Apoyar">Підтримати</a></li>
+        <li><a href="#news" data-uk="Новини" data-en="News" data-es="Noticias">Новини</a></li>
+        <li><a href="#contact" data-uk="Контакти" data-en="Contact" data-es="Contacto">Контакти</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-uk="Соцмережі" data-en="Social Media" data-es="Redes Sociales">Соцмережі</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/ucranianos_en_canarias" target="_blank">Instagram асоціації</a></li>
+        <li><a href="https://www.instagram.com/olesyalylak_official" target="_blank">Instagram Олесі</a></li>
+        <li><a href="https://www.facebook.com/2tierras2soles" target="_blank">Facebook</a></li>
+        <li><a href="https://t.me/asociaciya_ukrainciv_grancanaria" target="_blank">Telegram</a></li>
+        <li><a href="https://youtube.com/@user-kf9lh4hg9i" target="_blank">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 <span data-uk="Асоціація «Дві Землі, Два Сонця»" data-en="'Two Lands, Two Suns' Association" data-es="Asociación 'Dos Tierras, Dos Soles'">Асоціація «Дві Землі, Два Сонця»</span></span>
+    <span class="footer-nif">NIF: G76351097 · Agüimes, Gran Canaria, España</span>
+  </div>
+</footer>
+
+<script>
+// ── LANGUAGE SWITCHER ──
+function setLang(lang) {
+  document.querySelectorAll('[data-uk]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) el.textContent = text;
+  });
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.documentElement.lang = lang === 'uk' ? 'uk' : lang === 'en' ? 'en' : 'es';
+}
+
+// ── DONATE BUTTONS ──
+document.querySelectorAll('.amount-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// ── SCROLL FADE IN ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.project-card, .help-card, .team-card, .doc-card, .news-card, .partner-card, .value-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity .45s ease, transform .45s ease';
+  observer.observe(el);
+});
+
+// ── PHOTO PLACEHOLDER CLICK ──
+document.querySelectorAll('.photo-placeholder-img, .team-photo-placeholder, .project-photo, .news-photo, .partner-logo-placeholder, .media-thumb').forEach(el => {
+  el.title = 'Клікніть, щоб додати фото / Click to add photo';
+});
+</script>
+</body>
+</html>
