@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дві Землі, Два Сонця | Two Lands, Two Suns | Dos Tierras, Dos Soles</title>
+<meta name="description" content="Асоціація українців Канарських островів «Дві Землі, Два Сонця» — об'єднуємо українську діаспору та іспанське суспільство з 2017 року.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="olesya-lylak-large.webp">
+<style>
+:root{
+  --blue:#0768a9;--blue-d:#055486;--blue-soft:#eaf3fa;
+  --yellow:#ffcc00;--ink:#111111;--mid:#4b4b4b;--muted:#8a8a8a;--line:#e5e5e5;--white:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--white);font-size:17px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+[class*="grid"]>*,.mosaic>*,.two>*,.stats>*{min-width:0}
+a{color:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 32px}
+section{padding:110px 0}
+
+/* highlight marker, as in the reference */
+.hl{background:var(--blue);color:#fff;padding:0 .14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl-y{background:var(--yellow);color:var(--ink);padding:0 .14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.oval{display:inline-block;border:2.5px solid currentColor;border-radius:50%;padding:.08em .55em .12em;transform:rotate(-2deg)}
+.star{list-style:none}
+.star li{position:relative;padding-left:34px;margin:0 0 16px}
+.star li::before{content:"✸";position:absolute;left:0;top:-2px;font-size:22px;line-height:1.2;color:var(--ink)}
+.band .star li::before{color:var(--yellow)}
+.star li strong{font-weight:600}
+
+h1,h2,h3{font-weight:400;letter-spacing:-.025em;line-height:1.08}
+.h2{font-size:clamp(34px,5vw,58px);margin-bottom:22px}
+.lead{font-size:clamp(18px,2vw,21px);color:var(--mid);max-width:680px;font-weight:300}
+.kicker{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.kicker::before{content:"✸ "}
+
+.pill{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;text-decoration:none;border:none;cursor:pointer;font:500 16px/1 'Inter',sans-serif;letter-spacing:.08em;padding:18px 36px;border-radius:999px;transition:transform .15s,background .15s}
+.pill:hover{background:var(--blue-d);transform:translateY(-2px)}
+.pill.yellow{background:var(--yellow);color:var(--ink)}
+.pill.yellow:hover{background:#f2c000}
+.pill.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.pill.ghost:hover{background:var(--ink);color:#fff}
+.band .pill.ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #fff}
+.band .pill.ghost:hover{background:#fff;color:var(--blue)}
+
+.band{background:var(--blue);color:#fff}
+.band .lead{color:rgba(255,255,255,.85)}
+.band .kicker{color:var(--yellow)}
+
+/* hand-drawn arrow */
+.arrow{width:70px;height:80px;color:var(--ink);margin:18px 0 6px 40px}
+
+/* LANG + NAV */
+.lang-bar{display:flex;justify-content:flex-end;gap:6px;padding:8px 32px;border-bottom:1px solid var(--line);font-size:12px}
+.lang-btn{background:none;border:1px solid var(--line);color:var(--mid);padding:5px 13px;border-radius:999px;cursor:pointer;font:500 12px 'Inter',sans-serif}
+.lang-btn.active,.lang-btn:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding:0 32px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-logo img{height:50px;width:auto}
+.nav-links{display:flex;gap:2px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-size:14px;color:var(--mid);padding:8px 11px;border-radius:999px;white-space:nowrap}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .pill{padding:11px 22px;font-size:13px;color:#fff;margin-left:8px}
+.burger{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px}
+.burger span{display:block;height:2px;background:var(--ink);margin:7px 6px}
+
+/* HERO */
+#hero{padding:80px 0 100px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero-h1{font-size:clamp(50px,7.4vw,98px);margin-bottom:28px}
+.hero-sub{font-size:clamp(18px,2vw,22px);color:var(--mid);font-weight:300;max-width:540px;margin-bottom:38px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mosaic img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.mosaic .tile{aspect-ratio:4/5;background:var(--blue);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
+.mosaic .tile b{font-size:44px;font-weight:400;letter-spacing:-.03em;line-height:1}
+.mosaic .tile span{font-size:13px;opacity:.85}
+.mosaic .tile.y{background:var(--yellow);color:var(--ink)}
+.mosaic .tile.logo-tile{background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);align-items:center;justify-content:center;padding:14px}
+.mosaic .tile.logo-tile img{width:100%;height:auto;aspect-ratio:auto}
+.mosaic .tile.split{padding:0;background:none;display:grid;grid-template-columns:100%;grid-template-rows:1fr 1fr;width:100%}
+.mosaic .tile.split .half{display:flex;flex-direction:column;justify-content:flex-end;padding:12px 16px}
+.mosaic .tile.split .half.b{background:var(--blue);color:#fff}
+.mosaic .tile.split .half.y{background:var(--yellow);color:var(--ink)}
+.mosaic .tile.split b{font-size:34px}
+.mosaic .tile.split .half.y span{font-size:12px;line-height:1.3;opacity:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:80px;border-top:1px solid var(--ink)}
+.stat{padding:26px 20px 0 0}
+.stat-num{font-size:clamp(40px,5vw,64px);letter-spacing:-.03em;line-height:1}
+.stat-label{font-size:14px;color:var(--mid);margin-top:10px}
+
+/* FLAGS: Ukraine + Canary Islands */
+.flags{display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.flags-cap{font-size:13px;color:var(--mid);margin-left:4px}
+.flag{width:42px;height:28px;display:block;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.flag.ua{background:linear-gradient(#0057b7 50%,#ffd700 50%)}
+.flag.ic{background:linear-gradient(90deg,#fff 33.33%,#0768a9 33.33% 66.66%,#ffcc00 66.66%)}
+.flag-band{height:8px;background:linear-gradient(90deg,#0057b7 0 25%,#ffd700 25% 50%,#fff 50% 66.66%,#0768a9 66.66% 83.33%,#ffcc00 83.33%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.facts{border-top:1px solid var(--line);margin-top:34px}
+.fact{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.fact dt{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.08em;padding-top:2px}
+.values{margin-top:8px}
+.values li{font-size:19px}
+.values li span{display:block;font-size:15px;color:var(--mid);font-weight:300;margin-top:2px}
+
+/* MISSION */
+.mission{padding:110px 0;text-align:center}
+.mission blockquote{font-size:clamp(28px,4.2vw,54px);letter-spacing:-.025em;line-height:1.15;max-width:960px;margin:0 auto;font-weight:300}
+
+/* FOUNDER */
+.founder-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.founder-photo{position:relative}
+.founder-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;position:relative;z-index:1}
+.founder-photo::after{content:"";position:absolute;inset:22px -22px -22px 22px;background:var(--yellow);z-index:0}
+.founder-name{font-size:clamp(32px,4vw,48px);margin-bottom:6px}
+.founder-role{color:var(--blue);font-weight:500;margin-bottom:26px}
+.founder-bio{font-size:18px;color:var(--mid);font-weight:300;margin-bottom:28px}
+.founder-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.tl{margin-top:34px;border-top:1px solid var(--ink)}
+.tl details{border-bottom:1px solid var(--line)}
+.tl summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:20px}
+.tl summary::-webkit-details-marker{display:none}
+.tl summary::after{content:"";width:12px;height:12px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);transition:transform .2s;margin-right:6px}
+.tl details[open] summary::after{transform:rotate(-135deg)}
+.tl ul{padding:0 0 18px}
+.tl li{font-size:16px;color:var(--mid);margin-bottom:10px}
+
+/* TEAM */
+.team-label{display:flex;align-items:center;gap:16px;font-size:22px;margin:56px 0 26px}
+.team-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 24px}
+.team-grid.five{grid-template-columns:repeat(5,1fr);gap:34px 20px}
+.member img,.member .ph{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--blue-soft);margin-bottom:16px;transition:filter .3s}
+.member .ph{display:flex;align-items:center;justify-content:center;font-size:44px;color:var(--blue);letter-spacing:-.02em}
+.member-name{font-size:19px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.member-role{font-size:14px;color:var(--mid);margin-top:4px;line-height:1.4}
+.member-loc{font-size:13px;color:var(--blue);margin-top:6px;font-weight:500}
+
+/* PROJECTS */
+#projects{background:#fafafa}
+.sector{margin-top:60px}
+.sector h3{font-size:26px;margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.sector h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proj{background:#fff;border-top:3px solid var(--blue);padding:28px 26px 30px;transition:transform .2s,box-shadow .2s}
+.proj:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(7,104,169,.1)}
+.proj-cat{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.proj-title{font-size:21px;letter-spacing:-.015em;line-height:1.25;margin-bottom:12px}
+.proj-text{font-size:15px;color:var(--mid);font-weight:300}
+.proj.feature{border-top-color:var(--yellow)}
+
+/* HELP (blue band list with dividers) */
+.help-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;border-top:1px solid rgba(255,255,255,.35)}
+.help-item{padding:30px 30px 34px 0;border-bottom:1px solid rgba(255,255,255,.35)}
+.help-item:not(:nth-child(3n+1)){padding-left:30px;border-left:1px solid rgba(255,255,255,.35)}
+.help-item h3{font-size:23px;margin-bottom:10px}
+.help-item h3::before{content:"✸ ";color:var(--yellow)}
+.help-item p{font-size:15px;color:rgba(255,255,255,.85);font-weight:300}
+.help-cta{margin-top:52px}
+
+/* CV HELP */
+.cv-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+.cv-card{border:2px solid var(--blue);padding:36px 34px}
+.cv-card h3{font-size:clamp(26px,3vw,34px);line-height:1.35;margin-bottom:16px}
+.cv-card p{color:var(--mid);font-weight:300;font-size:18px;margin-bottom:28px}
+
+/* DONATE */
+#donate{text-align:center;border-top:1px solid var(--line)}
+.donate-box{max-width:760px;margin:0 auto}
+.amounts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:40px 0}
+.amount-btn{background:#fff;border:1.5px solid var(--ink);color:var(--ink);padding:12px 28px;border-radius:999px;font:500 18px 'Inter',sans-serif;cursor:pointer}
+.amount-btn.active,.amount-btn:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.iban{border:2px solid var(--blue);padding:30px 32px;text-align:left}
+.iban-title{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:600}
+.iban-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.iban-row:last-of-type{border:none}
+.iban-label{font-size:14px;color:var(--mid)}
+.iban-value{font:600 15px ui-monospace,Menlo,monospace;text-align:right}
+.copy{background:var(--blue-soft);color:var(--blue);border:none;padding:6px 14px;border-radius:999px;font:600 12px 'Inter',sans-serif;cursor:pointer;margin-left:10px}
+.copy:hover{background:var(--blue);color:#fff}
+.iban .pill{width:100%;justify-content:center;margin-top:20px;letter-spacing:.03em}
+.uses{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;text-align:left;border-top:1px solid var(--ink)}
+.use{padding:20px 20px 0 0}
+.use b{display:block;font-size:18px;font-weight:500;margin-bottom:4px}
+.use span{font-size:14px;color:var(--mid)}
+
+/* DOCS */
+#docs{background:#fafafa}
+.docs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:50px;max-width:780px}
+.doc{background:#fff;border:1px solid var(--line);padding:26px;text-decoration:none;display:block;transition:border-color .2s,transform .2s}
+a.doc:hover{border-color:var(--blue);transform:translateY(-3px)}
+.doc-title{font-size:19px;margin-bottom:6px;letter-spacing:-.01em}
+.doc-sub{font-size:13px;color:var(--muted)}
+.doc-status{display:inline-block;margin-top:18px;font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px}
+.doc-status.ok{background:var(--blue);color:#fff}
+.doc-status.wait{background:var(--yellow);color:var(--ink)}
+.org{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;margin-top:20px}
+.org div{border-top:1px solid var(--ink);padding-top:14px}
+.org small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.org b{font-weight:500;font-size:15px}
+
+/* PARTNERS */
+.partner-logo{height:96px;display:flex;align-items:center;margin-bottom:18px}
+.partner-logo img{max-height:96px;max-width:190px;width:auto;height:auto;object-fit:contain}
+.wordmark{font-size:40px;font-weight:700;letter-spacing:-.02em;color:var(--blue)}
+/* SCHOOL */
+.band-y{background:var(--yellow);color:var(--ink)}
+.band-y .kicker{color:var(--ink)}
+.band-y .lead{color:var(--ink);margin-bottom:30px}
+.school-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+.school-grid .star li{font-size:18px}
+.coach-wa{margin:4px 0 28px;border-top:1px solid var(--ink);padding-top:14px}
+.coach-wa small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.coach-wa a{font-size:26px;text-decoration:none;color:var(--blue)}
+.founder-more{margin:-10px 0 26px;font-weight:500}
+.founder-more a,a.ln{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.founder-more a{font-weight:500}
+.partners{display:grid;grid-template-columns:repeat(3,1fr);margin-top:50px;border-top:1px solid var(--ink)}
+.partner{padding:26px 26px 28px 0;border-bottom:1px solid var(--line)}
+.partner:not(:nth-child(3n+1)){padding-left:26px;border-left:1px solid var(--line)}
+.partner-type{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:8px}
+.partner-name{font-size:21px;letter-spacing:-.015em;margin-bottom:6px}
+.partner-desc{font-size:15px;color:var(--mid);font-weight:300}
+
+/* VOLUNTEER + CONTACT */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.form{background:#fff;color:var(--ink);padding:36px}
+.form h3{font-size:28px;margin-bottom:24px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:7px;font-weight:600}
+.fg input,.fg select,.fg textarea{width:100%;padding:13px 16px;border:1.5px solid var(--line);font:400 15px 'Inter',sans-serif;background:#fff;color:var(--ink);outline:none;border-radius:0}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue)}
+.fg textarea{min-height:110px;resize:vertical}
+.form .pill{width:100%;justify-content:center}
+.contact-list{margin-top:36px;border-top:1px solid rgba(255,255,255,.35)}
+.citem{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.35)}
+.citem small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:4px}
+.citem a,.citem span{font-size:19px;color:#fff;text-decoration:none}
+.citem a:hover{text-decoration:underline}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.socials a{color:#fff;text-decoration:none;font-size:14px;padding:10px 18px;border-radius:999px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
+.socials a:hover{background:#fff;color:var(--blue)}
+
+/* FOOTER */
+footer{background:var(--blue-d);color:rgba(255,255,255,.75);padding:70px 0 30px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px}
+.foot img{height:70px;width:auto;margin-bottom:18px}
+.foot p{font-size:14px;max-width:300px}
+.foot h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:14px;letter-spacing:.04em}
+.foot ul{list-style:none}
+.foot li{margin-bottom:8px}
+.foot a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px}
+.foot a:hover{color:var(--yellow)}
+.foot-bottom{margin-top:50px;padding-top:22px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px}
+
+.small-note{font-size:13px;color:var(--muted);margin-top:10px}
+.band .hl-y,.mission .hl-y{color:var(--ink)}
+
+/* MOTION: buttons + tappable blocks */
+.pill,.amount-btn,.lang-btn,.copy{position:relative;overflow:hidden;transition:translate .25s cubic-bezier(.2,.8,.2,1),scale .15s,background .2s,box-shadow .25s,color .2s}
+.pill:hover,.amount-btn:hover{translate:0 -3px;box-shadow:0 10px 24px rgba(7,104,169,.28);transform:none}
+.pill.yellow:hover{box-shadow:0 10px 24px rgba(255,204,0,.45)}
+.pill::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);translate:-130% 0;transition:translate .7s ease;pointer-events:none}
+.pill:hover::after{translate:130% 0}
+.pill:active,.amount-btn:active,.lang-btn:active,.copy:active{scale:.94}
+.tap{position:relative;overflow:hidden;cursor:pointer;transition:translate .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.proj.tap:hover,.doc.tap:hover,.cv-card.tap:hover{translate:0 -5px;box-shadow:0 16px 34px rgba(7,104,169,.14);transform:none}
+.member.tap{overflow:visible}
+.member img{transition:translate .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.member:hover img{translate:0 -6px;box-shadow:8px 8px 0 var(--yellow)}
+.mosaic>*{transition:translate .3s cubic-bezier(.2,.8,.2,1)}
+.mosaic>*:hover{translate:0 -6px}
+.pop{animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{0%{scale:1}35%{scale:.96}70%{scale:1.02}100%{scale:1}}
+.ripple{position:absolute;border-radius:50%;pointer-events:none;width:20px;height:20px;margin:-10px 0 0 -10px;background:rgba(7,104,169,.22);animation:ripple .65s ease-out forwards;z-index:3}
+.band .ripple,.band-y .ripple{background:rgba(255,255,255,.4)}
+@keyframes ripple{to{transform:scale(40);opacity:0}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+#help .lead{max-width:none}
+@media(min-width:1000px){#help .lead{white-space:nowrap}}
+
+/* fade in */
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+
+@media(max-width:1080px){
+  .nav-links a:not(.pill){padding:8px 7px;font-size:13px}
+}
+@media(max-width:980px){
+  .hero-grid,.about-grid,.founder-grid,.cv-grid,.school-grid,.two{grid-template-columns:1fr;gap:48px}
+  .team-grid,.team-grid.five{grid-template-columns:repeat(3,1fr)}
+  .proj-grid,.help-grid,.partners{grid-template-columns:1fr 1fr}
+  .help-item,.help-item:not(:nth-child(3n+1)),.partner,.partner:not(:nth-child(3n+1)){padding:26px 22px 28px 0;border-left:none}
+  .help-item:nth-child(2n),.partner:nth-child(2n){padding-left:22px;border-left:1px solid rgba(255,255,255,.35)}
+  .partner:nth-child(2n){border-left-color:var(--line)}
+  .docs-grid{grid-template-columns:1fr 1fr}
+  .foot{grid-template-columns:1fr 1fr}
+  .founder-photo{max-width:460px}
+  .coach-photo{max-width:380px}
+  .nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:14px 24px 22px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .nav-links a:not(.pill){font-size:16px;padding:12px 0}
+  .nav-links .pill{margin:10px 0 0;justify-content:center}
+  .burger{display:block}
+}
+@media(max-width:640px){
+  .container,.nav-in{padding:0 20px}
+  section,.mission{padding:76px 0}
+  .stats{grid-template-columns:1fr 1fr;row-gap:26px}
+  .team-grid,.team-grid.five{grid-template-columns:1fr 1fr;gap:26px 14px}
+  .member-name{font-size:16px}
+  .proj-grid,.help-grid,.partners,.docs-grid,.uses,.org{grid-template-columns:1fr}
+  .help-item,.help-item:nth-child(2n),.partner,.partner:nth-child(2n){padding:24px 0;border-left:none}
+  .fact{grid-template-columns:1fr;gap:4px}
+  .foot{grid-template-columns:1fr}
+  .form{padding:26px 20px}
+  .founder-photo::after{inset:14px -14px -14px 14px}
+  .lang-bar{padding:8px 20px}
+  .mosaic .tile{padding:10px}.mosaic .tile b,.mosaic .tile.split b{font-size:26px}.mosaic .tile.split .half{padding:7px 9px}.mosaic .tile.split b{font-size:22px}.mosaic .tile.split .half.y span{font-size:9.5px;line-height:1.2}.mosaic .tile span{font-size:11px;line-height:1.3}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="uk">🇺🇦 УКР</button>
+  <button class="lang-btn" data-lang="en">🇬🇧 ENG</button>
+  <button class="lang-btn" data-lang="es">🇪🇸 ESP</button>
+</div>
+
+<nav>
+  <div class="nav-in">
+    <a href="#hero" class="nav-logo"><img src="logo.png" alt="Dos Tierras, Dos Soles" width="600" height="332"></a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="#about" data-i="nav.about">Про нас</a></li>
+      <li><a href="#founder" data-i="nav.founder">Засновниця</a></li>
+      <li><a href="#team" data-i="nav.team">Команда</a></li>
+      <li><a href="#projects" data-i="nav.projects">Проєкти</a></li>
+      <li><a href="#help" data-i="nav.help">Допомога</a></li>
+      <li><a href="#coaching" data-i="nav.career">Резюме</a></li>
+      <li><a href="#school">OLacademy</a></li>
+      <li><a href="#docs" data-i="nav.docs">Документи</a></li>
+      <li><a href="#contact" data-i="nav.contact">Контакти</a></li>
+      <li><a href="#donate" class="pill" data-i="nav.donate">Підтримати</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="flags" aria-label="Україна · Canarias"><span class="flag ua" title="Україна"></span><span class="flag ic" title="Canarias"></span><span class="flags-cap">Україна · Canarias</span></div>
+        <div class="kicker" data-i="hero.kicker">Українська громада Канарських островів</div>
+        <h1 class="hero-h1" data-i="hero.h1">Дві Землі,<br><span class="hl-y">Два Сонця</span></h1>
+        <p class="hero-sub" data-i="hero.sub">Ми об'єднуємо українську діаспору та іспанське суспільство на Канарських островах. Підтримуємо, захищаємо, розвиваємо — <span class="hl-y">з 2017 року</span>.</p>
+        <div class="hero-ctas">
+          <a href="#donate" class="pill" data-i="hero.cta1">👉 Підтримати нас</a>
+          <a href="#help" class="pill ghost" data-i="hero.cta2">Отримати допомогу</a>
+          <a href="#volunteer" class="pill ghost" data-i="hero.cta3">Долучитися</a>
+        </div>
+      </div>
+      <div class="mosaic" aria-hidden="true">
+        <img src="olesya-lylak.webp" alt="" width="640" height="800">
+        <div class="tile"><b>50+</b><span data-i="hero.tile1">членкинь громади</span></div>
+        <img src="liudmyla-krupska.webp" alt="" width="640" height="800">
+        <img src="iryna-lutsenko.webp" alt="" width="640" height="800">
+        <img src="iryna-zhemchugova.webp" alt="" width="640" height="800">
+        <div class="tile y"><b>3</b><span data-i="hero.tile2">острови: Гран-Канарія, Тенерифе, Фуертевентура</span></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">2017</div><div class="stat-label" data-i="stat.1">рік заснування</div></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label" data-i="stat.2">членів асоціації</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label" data-i="stat.3">острови присутності</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-label" data-i="stat.4">ключових ініціатив</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="flag-band" aria-hidden="true"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="kicker" data-i="about.kicker">Про нас</div>
+        <h2 class="h2" data-i="about.h2">Хто ми і <span class="hl">для чого</span> ми тут</h2>
+        <p class="lead" data-i="about.lead">Провідна організація <span class="hl-y">української громади на Канарських островах</span>. Асоціацію заснувала у 2017 році Олеся Лилак-Чижович.</p>
+        <svg class="arrow" viewBox="0 0 70 80" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 4c10 22 30 34 40 58"/><path d="M34 58l15 8 4-16"/></svg>
+        <ul class="star values">
+          <li><strong data-i="val.1t">Солідарність</strong><span data-i="val.1">Поруч у найскладніші моменти з кожним, хто потребує підтримки</span></li>
+          <li><strong data-i="val.2t">Інтеграція</strong><span data-i="val.2">Допомагаємо знайти місце в іспанському суспільстві, не втрачаючи себе</span></li>
+          <li><strong data-i="val.3t">Ідентичність</strong><span data-i="val.3">Зберігаємо мову, культуру й традиції для наступних поколінь</span></li>
+          <li><strong data-i="val.4t">Розвиток</strong><span data-i="val.4">Підтримуємо жіноче лідерство, підприємництво та цифрові навички</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="band" style="padding:38px 36px">
+          <h3 style="font-size:28px;margin-bottom:14px" data-i="mission.t">Наша місія</h3>
+          <p style="font-weight:300;font-size:18px" data-i="mission.p">Ми <span class="hl-y">об'єднуємо українську діаспору та іспанське суспільство</span>, допомагаючи мігрантам орієнтуватися в новому середовищі, налагоджувати <span class="hl-y">культурний діалог</span> і створювати <span class="hl-y">стійку, підтримуючу спільноту</span>.</p>
+        </div>
+        <dl class="facts">
+          <div class="fact"><dt data-i="fact.reg">Реєстрація</dt><dd>2017 · NIF G76351097 · PIC 867216861 · <span data-i="fact.statute">статут оновлено 10.06.2023</span></dd></div>
+          <div class="fact"><dt data-i="fact.lang">Мови роботи</dt><dd data-i="fact.langv">Українська, іспанська, англійська</dd></div>
+          <div class="fact"><dt data-i="fact.mem">Членство</dt><dd data-i="fact.memv">Асоціація є членом Світової федерації українських жіночих організацій (СФУЖО / WFUWO) · СКУ · Федерація українських асоціацій Іспанії</dd></div>
+          <div class="fact"><dt data-i="fact.addr">Адреса</dt><dd data-i="addr.full">вул. Фуенте, 8, Лас-Пальмас-де-Гран-Канарія, Іспанія</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band mission">
+  <div class="container">
+    <blockquote data-i="quote">«Дві землі — один народ. Ми будуємо майбутнє, тримаючи в серці <span class="hl-y">обидва сонця</span>.»</blockquote>
+  </div>
+</div>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-photo fade"><img src="olesya-lylak-large.webp" alt="Олеся Лилак-Чижович" width="880" height="1100"></div>
+      <div>
+        <div class="kicker" data-i="f.kicker">Засновниця і президентка</div>
+        <h2 class="founder-name" data-i="f.name">Олеся Лилак-Чижович</h2>
+        <div class="founder-role" data-i="f.role">Президентка асоціації «Дві Землі, Два Сонця» · засновниця</div>
+        <p class="founder-bio" data-i="f.bio">Родом зі Львівщини. Понад 30 років — <span class="hl">на перетині двох культур</span>, України та Іспанії. Філологиня (освіта в Україні та в Університеті Барселони), присяжна перекладачка й правова експертка в іспанській системі. Працює українською, іспанською, італійською та англійською. У 2017 році заснувала асоціацію на Гран-Канарії й відтоді її очолює.</p>
+        <p class="founder-more"><span data-i="f.more">Більше про Олесю <a href="https://www.olesyalylak.online" target="_blank" rel="noopener">тут</a></span></p>
+        <ul class="star">
+          <li data-i="f.r1">Президентка жіночої асоціації <strong>«Дві Землі, Два Сонця»</strong></li>
+          <li data-i="f.r2">Партнерка <strong>Торгово-промислової палати України</strong></li>
+          <li data-i="f.r3">Членкиня Global Executive Board <a class="ln" href="https://womafreesm.com" target="_blank" rel="noopener"><strong>Womafreesm</strong></a> і регіональна директорка для Іспанії та іспаномовних країн</li>
+          <li data-i="f.r4">Засновниця онлайн-школи іспанської <a class="ln" href="https://www.olaacademy.online" target="_blank" rel="noopener"><strong>OLacademy</strong></a></li>
+          <li data-i="f.r5">Співпрацює з «Радіо Емігрант» (Київ) з 2020 року</li>
+        </ul>
+        <div class="tl">
+          <details open>
+            <summary data-i="f.t1">Відзнаки</summary>
+            <ul class="star">
+              <li data-i="f.a1"><strong>2022</strong> — відзнака Уряду Іспанії за допомогу жінкам-біженкам та протидію гендерному насильству</li>
+              <li data-i="f.a2"><strong>2022</strong> — Premios Menina</li>
+              <li data-i="f.a3"><strong>2026</strong> — членкиня Real Sociedad Económica de Amigos del País (єдина українка серед дійсних членів)</li>
+              <li data-i="f.a4"><strong>2026</strong> — нагорода Charter 100 / Premios ASOCLUB за соціальну роботу</li>
+            </ul>
+          </details>
+          <details>
+            <summary data-i="f.t2">Ключові кроки</summary>
+            <ul class="star">
+              <li data-i="f.s1"><strong>2017</strong> — заснування асоціації «Дві Землі, Два Сонця»</li>
+              <li data-i="f.s2"><strong>2022</strong> — підтримка першої української школи вихідного дня на Гран-Канарії</li>
+              <li data-i="f.s3"><strong>2022</strong> — запрошена Посольством України на відкриття виставки українського мистецтва в музеї Тіссен-Борнемісса (Мадрид)</li>
+              <li data-i="f.s4"><strong>2023</strong> — ініціювала побратимство міст Ла-Лагуна та Львів</li>
+              <li data-i="f.s5"><strong>2023–2024</strong> — співпраця з Cabildo de Gran Canaria, муніципалітетами Лас-Пальмаса та Вальсекільйо, ECCA</li>
+              <li data-i="f.s6"><strong>2025</strong> — асоціація взяла під опіку будинки малюка в Хмельницькому</li>
+            </ul>
+          </details>
+        </div>
+        <div class="founder-links">
+          <a class="pill" href="https://www.olesyalylak.online" target="_blank" rel="noopener" data-i="f.site">Про Олесю →</a>
+          <a class="pill ghost" href="mailto:olesyalylak@gmail.com" data-i="f.mail">Пошта</a>
+          <a class="pill ghost" href="https://www.instagram.com/olesyalylak_official" target="_blank" rel="noopener" data-i="f.ig">Інстаграм</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" style="padding-top:40px">
+  <div class="container">
+    <div class="kicker" data-i="team.kicker">Команда</div>
+    <h2 class="h2" data-i="team.h2">Люди, які <span class="hl">творять зміни</span></h2>
+
+    <div class="team-label" data-i="team.board">Правління та координація</div>
+    <div class="team-grid">
+      <div class="member fade tap"><img src="olesya-lylak.webp" alt="Олеся Лилак-Чижович" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.olesya">Олеся Лилак-Чижович</div><div class="member-role" data-i="r.president">Президентка · засновниця</div><div class="member-loc" data-i="loc.gc">Гран-Канарія</div></div>
+      <div class="member fade tap"><img src="liudmyla-krupska.webp" alt="Людмила Крупська" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.krupska">Людмила Крупська</div><div class="member-role" data-i="r.vp">Віцепрезидентка</div><div class="member-loc" data-i="loc.tf">Тенерифе</div></div>
+      <div class="member fade tap"><img src="yana-lysenko.webp" alt="Яна Лисенко" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.lysenko">Яна Лисенко</div><div class="member-role" data-i="r.vp">Віцепрезидентка</div><div class="member-loc" data-i="loc.gc">Гран-Канарія</div></div>
+      <div class="member fade tap"><img src="krystyna-marini.webp" alt="Крістіна Маріні" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.marini">Крістіна Маріні</div><div class="member-role" data-i="r.treasurer">Відповідальна за фінанси</div><div class="member-loc" data-i="loc.gc">Гран-Канарія</div></div>
+    </div>
+
+    <div class="team-label" data-i="team.adv">Радниці та консультантки</div>
+    <div class="team-grid five">
+      <div class="member fade tap"><img src="iryna-lutsenko.webp" alt="Ірина Луценко" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.lutsenko">Ірина Луценко</div><div class="member-role" data-i="r.lutsenko">Радниця зі стратегічних міжнародних партнерств та європейських проєктів</div><div class="member-loc" data-i="loc.gc">Гран-Канарія</div></div>
+      <div class="member fade tap"><img src="olena-zvanska.webp" alt="Олена Званська" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.zvanska">Олена Званська</div><div class="member-role" data-i="r.culture">Культурна радниця</div><div class="member-loc" data-i="loc.gc">Гран-Канарія</div></div>
+      <div class="member fade tap"><img src="liudmyla-marchenko.webp" alt="Людмила Марченко" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.marchenko">Людмила Марченко</div><div class="member-role" data-i="r.fashion">Радниця з питань дизайну та моди</div><div class="member-loc" data-i="loc.tf">Тенерифе</div></div>
+      <div class="member fade tap"><img src="iryna-zhemchugova.webp" alt="Ірина Жемчугова" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.zhem">Ірина Жемчугова</div><div class="member-role" data-i="r.intl">Радниця з міжнародних справ</div><div class="member-loc" data-i="loc.tf">Тенерифе</div></div>
+      <div class="member fade tap"><img src="olena-kokhnenko.webp" alt="Олена Кохненко" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.kokh">Олена Кохненко</div><div class="member-role" data-i="r.pr">Радниця зі зв'язків з громадськістю</div><div class="member-loc" data-i="loc.tf">Тенерифе</div></div>
+      <div class="member fade tap"><img src="tetiana-polishchuk.webp" alt="Тетяна Поліщук" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.pol">Тетяна Поліщук</div><div class="member-role" data-i="r.edu">Радниця з питань освіти</div><div class="member-loc" data-i="loc.tf">Тенерифе</div></div>
+      <div class="member fade tap"><img src="ilona-partala.webp" alt="Ілона Партала" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.partala">Ілона Партала</div><div class="member-role" data-i="r.tour">Радниця з питань туризму</div><div class="member-loc" data-i="loc.tf">Тенерифе</div></div>
+      <div class="member fade tap"><img src="anna-sorochan.webp" alt="Анна Сорочан" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.sorochan">Анна Сорочан</div><div class="member-role" data-i="r.sport">Спортивна консультантка асоціації</div><div class="member-loc" data-i="loc.tf">Тенерифе</div></div>
+      <div class="member fade tap"><img src="yevheniia-bulakh.webp" alt="Євгенія Булах" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.bulakh">Євгенія Булах</div><div class="member-role" data-i="r.psy">Психологиня асоціації</div><div class="member-loc" data-i="loc.gc">Гран-Канарія</div></div>
+      <div class="member fade tap"><img src="sofia-cherniy.webp" alt="Софія Черній" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.cherniy">Софія Черній</div><div class="member-role" data-i="r.photo">Фотографка асоціації</div><div class="member-loc" data-i="loc.gc">Гран-Канарія</div></div>
+    </div>
+
+    <div class="team-label" data-i="team.reps">Представниці асоціації</div>
+    <div class="team-grid five">
+      <div class="member fade tap"><img src="natalia-pavliv.webp" alt="Наталя Павлів" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.pavliv">Наталя Павлів</div><div class="member-role" data-i="r.pavliv">Представниця асоціації на Фуертевентурі</div><div class="member-loc" data-i="loc.fv">Фуертевентура</div></div>
+      <div class="member fade tap"><img src="inna-bru.webp" alt="Інна Бру" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.bru">Інна Бру</div><div class="member-role" data-i="r.pavliv">Представниця асоціації на Фуертевентурі</div><div class="member-loc" data-i="loc.fv">Фуертевентура</div></div>
+      <div class="member fade tap"><img src="tetiana-kulyk.webp" alt="Тетяна Кулик" width="640" height="800" loading="lazy"><div class="member-name" data-i="n.kulyk">Тетяна Кулик</div><div class="member-role" data-i="r.kulyk">Представниця асоціації в Україні з питань культури</div><div class="member-loc" data-i="loc.tf">Тенерифе</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="kicker" data-i="p.kicker">Діяльність</div>
+    <h2 class="h2" data-i="p.h2">Наші проєкти <span class="hl">та ініціативи</span></h2>
+
+    <div class="sector">
+      <h3 data-i="p.s1">Культурна дипломатія</h3>
+      <div class="proj-grid">
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.1c">Культура · 28.11.2022</div><div class="proj-title" data-i="p.1t">Українське мистецтво в музеї Тіссен-Борнемісса</div><div class="proj-text" data-i="p.1">Виставку в Мадриді організувало Посольство України в Іспанії. Президентку асоціації Олесю Лилак-Чижович посольство запросило на офіційне відкриття.</div></div>
+        <div class="proj fade tap"><div class="proj-cat">XI Festival Internacional · 31.08.2024</div><div class="proj-title" data-i="p.2t">Міжнародний фестиваль культур</div><div class="proj-text" data-i="p.2">Представлення української культури, мистецтва та традицій громаді Вальсекільйо.</div></div>
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.3c">Мир і солідарність · 21.09.2024</div><div class="proj-title" data-i="p.3t">Міжнародний день миру</div><div class="proj-text" data-i="p.3">Участь у заходах Cabildo de Gran Canaria на підтримку миру та солідарності.</div></div>
+      </div>
+    </div>
+
+    <div class="sector">
+      <h3 data-i="p.s2">Соціальна інтеграція</h3>
+      <div class="proj-grid">
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.4c">Освіта · серпень 2024</div><div class="proj-title" data-i="p.4t">Курси іспанської мови разом з ECCA</div><div class="proj-text" data-i="p.4">Навчання та вручення дипломів про базовий рівень іспанської для кращої адаптації в Іспанії.</div></div>
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.5c">Постійно</div><div class="proj-title" data-i="p.5t">Інформаційна та юридична допомога</div><div class="proj-text" data-i="p.5">Роз'яснювальна, адміністративна та гуманітарна допомога переселенцям.</div></div>
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.6c">Партнерство · вересень 2024</div><div class="proj-title" data-i="p.6t">«Культура миру»</div><div class="proj-text" data-i="p.6">Зустріч з мером Лас-Пальмаса — співпраця для підтримки мігрантів і міжгромадських мереж.</div></div>
+      </div>
+    </div>
+
+    <div class="sector">
+      <h3 data-i="p.s3">Мода та мистецтво</h3>
+      <div class="proj-grid">
+        <div class="proj feature fade tap"><div class="proj-cat" data-i="p.7c">Мода · липень 2025</div><div class="proj-title" data-i="p.7t">Перший показ української весільної моди на Гран-Канарії</div><div class="proj-text" data-i="p.7">За підтримки Cabildo de Gran Canaria асоціація запросила українську дизайнерку Людмилу Шанську, яка представила колекцію весільних суконь та аксесуарів.</div></div>
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.8c">Рекорд · 23.08.2024</div><div class="proj-title" data-i="p.8t">Прапор з 300 колосків пшениці</div><div class="proj-text" data-i="p.8">Символічний прапор у Gabinete Literario з виробів бренду Zarmilcas.</div></div>
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.9c">Благодійність · 28.08.2024</div><div class="proj-title" data-i="p.9t">Колективне малювання «Голуб миру»</div><div class="proj-text" data-i="p.9">Картина для благодійного аукціону на підтримку опікових відділень лікарень України.</div></div>
+      </div>
+    </div>
+
+    <div class="sector">
+      <h3 data-i="p.s4">Благодійність та гуманітарна сфера</h3>
+      <div class="proj-grid">
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.10c">Відзнака · 25.11.2022</div><div class="proj-title" data-i="p.10t">Відзнака Уряду Іспанії</div><div class="proj-text" data-i="p.10">Нагорода за допомогу жінкам-біженкам та протидію гендерному насильству.</div></div>
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.11c">Медицина · липень 2024</div><div class="proj-title" data-i="p.11t">Медичне партнерство ICOT × БДМУ</div><div class="proj-text" data-i="p.11">Програми обміну для реабілітації поранених військових та неврологічного лікування.</div></div>
+        <div class="proj fade tap"><div class="proj-cat" data-i="p.12c">Міжнародна співпраця · 17.07.2024</div><div class="proj-title" data-i="p.12t">Офіс Омбудсмана України</div><div class="proj-text" data-i="p.12">Участь у розробці державної стратегії повернення українців додому.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HELP -->
+<section id="help" class="band">
+  <div class="container">
+    <div class="kicker" data-i="h.kicker">Для тебе</div>
+    <h2 class="h2" data-i="h.h2">Як ми допомагаємо <span class="hl-y">українцям</span></h2>
+    <p class="lead" data-i="h.lead">Якщо ти щойно приїхав на Канари або живеш тут давно — <span class="hl-y">ми поруч</span>.</p>
+    <div class="help-grid">
+      <div class="help-item tap"><h3 data-i="h.1t">Юридична допомога</h3><p data-i="h.1">Консультації щодо проживання, статусу, реєстрації та трудових прав. Досвід присяжної перекладачки в іспанській системі.</p></div>
+      <div class="help-item tap"><h3 data-i="h.2t">Соціальна адаптація</h3><p data-i="h.2">Пошук житла, іспанські регуляції, відкриття рахунку, документи.</p></div>
+      <div class="help-item tap"><h3 data-i="h.3t">Пошук роботи</h3><p data-i="h.3">Тренінги з пошуку роботи, складання CV, підготовка до іспанського ринку праці.</p></div>
+      <div class="help-item tap"><h3 data-i="h.4t">Освіта та мова</h3><p data-i="h.4">Підтримка освіти дітей, ресурси для вивчення іспанської, курси разом з ECCA.</p></div>
+      <div class="help-item tap"><h3 data-i="h.5t">Психологічна підтримка</h3><p data-i="h.5">Зв'язок зі спеціалістами. Психологиня асоціації Євгенія Булах (Тенерифе) готова надати підтримку.</p></div>
+      <div class="help-item tap"><h3 data-i="h.6t">Гуманітарна допомога</h3><p data-i="h.6">Координація гуманітарних ініціатив і розподіл допомоги для тих, хто її найбільше потребує.</p></div>
+    </div>
+    <div class="help-cta"><a href="#contact" class="pill yellow" data-i="h.cta">👉 Звернутися по допомогу</a></div>
+  </div>
+</section>
+
+<!-- CV HELP -->
+<section id="coaching">
+  <div class="container">
+    <div class="cv-grid">
+      <div>
+        <div class="kicker" data-i="c.kicker">Послуги асоціації</div>
+        <h2 class="h2" data-i="c.h2">Розбір твого <span class="hl">резюме</span></h2>
+        <p class="lead" data-i="c.lead">Шукаєш роботу в Іспанії? Перевіримо твоє готове резюме, щоб воно <span class="hl-y">працювало на тебе</span>.</p>
+        <p class="small-note" data-i="c.note">За потреби допоможемо також скласти резюме.</p>
+      </div>
+      <div class="cv-card tap">
+        <h3 data-i="c.h3">Експрес-розбір CV<br><span class="oval">20 хвилин</span></h3>
+        <p data-i="c.sub">Подивимося на твоє резюме і знайдемо, що саме заважає роботодавцю побачити твій досвід.</p>
+        <a href="https://wa.me/380683521151?text=%D0%92%D1%96%D1%82%D0%B0%D1%8E%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D0%B8%D1%81%D1%8C%20%D0%BD%D0%B0%20%D0%B5%D0%BA%D1%81%D0%BF%D1%80%D0%B5%D1%81-%D1%80%D0%BE%D0%B7%D0%B1%D1%96%D1%80%20CV" target="_blank" rel="noopener" class="pill" id="waCV" data-i="c.cta">👉 Записатися у WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OLA ACADEMY -->
+<section id="school" class="band-y">
+  <div class="container">
+    <div class="school-grid">
+      <div>
+        <div class="kicker" data-i="s.kicker">Школа іспанської</div>
+        <h2 class="h2" data-i="s.h2"><span class="hl">OLacademy</span> — онлайн-школа іспанської мови</h2>
+        <p class="lead" data-i="s.lead">Онлайн-школа іспанської мови <span class="hl">для дорослих</span> з Гран-Канарії. Її заснувала президентка асоціації Олеся Лилак-Чижович.</p>
+        <a href="https://www.olaacademy.online" target="_blank" rel="noopener" class="pill" data-i="s.cta">Перейти на сайт школи →</a>
+      </div>
+      <ul class="star">
+        <li data-i="s.1"><strong>Рівні від A0 до C1</strong> — від нуля до вільного володіння</li>
+        <li data-i="s.2"><strong>Міні-групи 4–6 осіб</strong> або індивідуальні уроки за гнучким графіком</li>
+        <li data-i="s.3"><strong>Розмовна практика</strong> з перших уроків</li>
+        <li data-i="s.4"><strong>Офіційний диплом ECCAEDU</strong> (A1–C1) у кожному пакеті</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section id="donate">
+  <div class="container">
+    <div class="donate-box">
+      <div class="kicker" data-i="d.kicker">Підтримати</div>
+      <h2 class="h2" data-i="d.h2">Кожне євро — <span class="hl">це зміна</span></h2>
+      <p class="lead" style="margin:0 auto" data-i="d.lead">Твоя підтримка допомагає нам <span class="hl-y">підтримувати українців на Канарах</span> і будувати сильнішу спільноту.</p>
+      <div class="amounts">
+        <button class="amount-btn">€10</button>
+        <button class="amount-btn active">€25</button>
+        <button class="amount-btn">€50</button>
+        <button class="amount-btn">€100</button>
+        <button class="amount-btn" data-i="d.custom">Своя сума</button>
+      </div>
+      <div class="iban">
+        <div class="iban-title" data-i="d.ibant">IBAN для переказу (Іспанія · SEPA)</div>
+        <div class="iban-row"><span class="iban-label">IBAN</span><span><span class="iban-value">ES14 2100 7008 5502 0021 6749</span><button class="copy" id="copyBtn" data-i="d.copy">Копіювати</button></span></div>
+        <div class="iban-row"><span class="iban-label" data-i="d.rec">Отримувач</span><span class="iban-value">UCRANIA EN CANARIAS POR LA AMISTAD</span></div>
+        <div class="iban-row"><span class="iban-label">NIF</span><span class="iban-value">G76351097</span></div>
+        <div class="iban-row"><span class="iban-label" data-i="d.ref">Призначення</span><span class="iban-value" data-i="d.refv">Донація — [ваше ім'я]</span></div>
+        <a href="mailto:olesyalylak@gmail.com?subject=Donación%20/%20Донат" class="pill" data-i="d.confirm">Підтвердити переказ листом</a>
+      </div>
+      <div class="uses">
+        <div class="use tap"><b data-i="d.u1t">Юридична допомога</b><span data-i="d.u1">Безкоштовні консультації для переселенців</span></div>
+        <div class="use tap"><b data-i="d.u2t">Культурні заходи</b><span data-i="d.u2">Фестивалі, виставки, традиції</span></div>
+        <div class="use tap"><b data-i="d.u3t">Гуманітарна допомога</b><span data-i="d.u3">Підтримка тих, хто найбільше потребує</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCS -->
+<section id="docs">
+  <div class="container">
+    <div class="kicker" data-i="doc.kicker">Прозорість</div>
+    <h2 class="h2" data-i="doc.h2">Документи <span class="hl">та звітність</span></h2>
+    <p class="lead" data-i="doc.lead">Ми відкриті перед нашою громадою, донорами та партнерами. <span class="hl-y">Прозорість — наш обов'язок</span>.</p>
+    <div class="docs-grid">
+      <a href="estatutos_2023.pdf" download="Estatutos_Dos_Tierras_Dos_Soles_2023.pdf" class="doc tap"><div class="doc-title" data-i="doc.1">Статут асоціації</div><div class="doc-sub">Estatutos Sociales · 2023</div><div class="doc-status ok" data-i="doc.dl">↓ Завантажити PDF</div></a>
+      <a href="certificado.pdf" download="Certificado_Registro_Dos_Tierras_Dos_Soles.pdf" class="doc tap"><div class="doc-title" data-i="doc.2">Свідоцтво про реєстрацію</div><div class="doc-sub">NIF G76351097 · Gobierno de Canarias</div><div class="doc-status ok" data-i="doc.dl">↓ Завантажити PDF</div></a>
+    </div>
+    <div class="org">
+      <div><small data-i="doc.name">Офіційна назва</small><b data-i="doc.namev">УКРАЇНА НА КАНАРАХ ЗАРАДИ ДРУЖБИ: ДВІ ЗЕМЛІ, ДВА СОНЦЯ</b></div>
+      <div><small>NIF</small><b>G76351097</b></div>
+      <div><small>PIC (Erasmus+ / EU)</small><b>867216861</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="container">
+    <div class="kicker" data-i="pa.kicker">Партнери</div>
+    <h2 class="h2" data-i="pa.h2">Разом ми <span class="hl">сильніші</span></h2>
+    <div class="partners">
+      <div class="partner tap"><div class="partner-logo"><img src="cabildo.webp" alt="Cabildo de Gran Canaria" loading="lazy"></div><div class="partner-type" data-i="pa.1t">Місцева влада</div><div class="partner-name">Cabildo de Gran Canaria</div><div class="partner-desc" data-i="pa.1">Стратегічне партнерство з урядом острова</div></div>
+      <div class="partner tap"><div class="partner-logo"><img src="itc.webp" alt="ITC" loading="lazy"></div><div class="partner-type" data-i="pa.2t">Технологічний інститут</div><div class="partner-name">ITC — Instituto Tecnológico de Canarias</div><div class="partner-desc" data-i="pa.2">Цифрові навички та технології</div></div>
+      <div class="partner tap"><div class="partner-logo"><img src="infecar.webp" alt="Infecar" loading="lazy"></div><div class="partner-type" data-i="pa.3t">Міжнародні ярмарки</div><div class="partner-name">Infecar</div><div class="partner-desc" data-i="pa.3">Ярмарки та виставки</div></div>
+      <div class="partner tap"><div class="partner-logo"><img src="sfuzho.webp" alt="СФУЖО" loading="lazy"></div><div class="partner-type" data-i="pa.4t">Міжнародна федерація</div><div class="partner-name">СФУЖО / WFUWO</div><div class="partner-desc" data-i="pa.4">Асоціація є членом Світової федерації українських жіночих організацій</div></div>
+      <div class="partner tap"><div class="partner-logo"><img src="uwc.webp" alt="Світовий Конґрес Українців" loading="lazy"></div><div class="partner-type" data-i="pa.5t">Діаспорна організація</div><div class="partner-name" data-i="pa.5n">Світовий Конґрес Українців</div><div class="partner-desc" data-i="pa.5">Глобальна мережа українства</div></div>
+      <div class="partner tap"><div class="partner-logo"><span class="wordmark">ECCA</span></div><div class="partner-type" data-i="pa.6t">Освітній партнер</div><div class="partner-name">ECCA</div><div class="partner-desc" data-i="pa.6">Курси іспанської мови для мігрантів</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer" class="band">
+  <div class="container">
+    <div class="two">
+      <div>
+        <div class="kicker" data-i="v.kicker">Долучитися</div>
+        <h2 class="h2" data-i="v.h2">Стань частиною <span class="hl-y">громади</span></h2>
+        <p class="lead" data-i="v.lead"><span class="hl-y">Наша сила — у людях</span>. Кожен, хто долучається, робить асоціацію сильнішою.</p>
+        <ul class="star" style="margin-top:34px">
+          <li data-i="v.1">Волонтери на культурних заходах</li>
+          <li data-i="v.2">Перекладачі (українська, іспанська, англійська)</li>
+          <li data-i="v.3">Фахівці з PR та соціальних мереж</li>
+          <li data-i="v.4">Юристи та правові консультанти</li>
+          <li data-i="v.5">Вчителі та методисти</li>
+          <li data-i="v.6">Коучі та кар'єрні консультанти</li>
+        </ul>
+      </div>
+      <form class="form" id="volForm">
+        <h3 data-i="v.ft">Залиш свої контакти</h3>
+        <div class="fg"><label data-i="v.name">Ім'я та прізвище</label><input name="name" type="text" required placeholder="Ольга Коваленко"></div>
+        <div class="fg"><label>Email</label><input name="email" type="email" required placeholder="olha@example.com"></div>
+        <div class="fg"><label data-i="v.how">Як можеш допомогти?</label>
+          <select name="role">
+            <option data-i="v.o1">Волонтерка / волонтер на заходах</option>
+            <option data-i="v.o2">Перекладач</option>
+            <option>PR / SMM</option>
+            <option data-i="v.o3">Юридичний консультант</option>
+            <option data-i="v.o4">Коуч / кар'єрний консультант</option>
+            <option data-i="v.o5">Вчитель / методист</option>
+            <option data-i="v.o6">Інше</option>
+          </select></div>
+        <div class="fg"><label data-i="v.about">Розкажи про себе</label><textarea name="msg"></textarea></div>
+        <button class="pill" type="submit" data-i="v.send">Надіслати →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="two">
+      <div>
+        <div class="kicker" data-i="ct.kicker">Контакти</div>
+        <h2 class="h2" data-i="ct.h2">Зв'яжіться <span class="hl">з нами</span></h2>
+        <div class="contact-list" style="border-top-color:var(--ink)">
+          <div class="citem" style="border-color:var(--line)"><small style="color:var(--muted)" data-i="ct.addr">Адреса</small><a style="color:var(--ink)" href="https://www.google.com/maps/search/?api=1&query=Calle+Fuente+8+Las+Palmas+de+Gran+Canaria" target="_blank" rel="noopener" data-i="addr.short">вул. Фуенте, 8, Лас-Пальмас-де-Гран-Канарія</a></div>
+          <div class="citem" style="border-color:var(--line)"><small style="color:var(--muted)" data-i="ct.phone">Телефон / WhatsApp — президентка асоціації</small><a style="color:var(--ink)" href="tel:+34660020482">+34 660 020 482</a></div>
+          <div class="citem" style="border-color:var(--line)"><small style="color:var(--muted)">Email</small><a style="color:var(--ink)" href="mailto:olesyalylak@gmail.com">olesyalylak@gmail.com</a></div>
+        </div>
+        <div class="socials">
+          <a class="pill ghost" style="padding:10px 18px;font-size:14px;letter-spacing:0" href="https://www.instagram.com/ucranianos_en_canarias" target="_blank" rel="noopener">Instagram</a>
+          <a class="pill ghost" style="padding:10px 18px;font-size:14px;letter-spacing:0" href="https://www.facebook.com/2tierras2soles" target="_blank" rel="noopener">Facebook</a>
+          <a class="pill ghost" style="padding:10px 18px;font-size:14px;letter-spacing:0" href="https://t.me/asociaciya_ukrainciv_grancanaria" target="_blank" rel="noopener">Telegram UA</a>
+          <a class="pill ghost" style="padding:10px 18px;font-size:14px;letter-spacing:0" href="https://t.me/ucrainianos_en_canarias" target="_blank" rel="noopener">Telegram ES</a>
+          <a class="pill ghost" style="padding:10px 18px;font-size:14px;letter-spacing:0" href="https://www.youtube.com/channel/UCygIWmzMQDkCuzSkgqB2Gzw" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+      <form class="form" id="contactForm" style="border:1.5px solid var(--line)">
+        <h3 data-i="ct.ft">Напиши нам</h3>
+        <div class="fg"><label data-i="ct.name">Ваше ім'я</label><input name="name" type="text" required></div>
+        <div class="fg"><label>Email</label><input name="email" type="email" required placeholder="your@email.com"></div>
+        <div class="fg"><label data-i="ct.msg">Повідомлення</label><textarea name="msg" style="min-height:150px" required></textarea></div>
+        <button class="pill" type="submit" data-i="ct.send">Надіслати повідомлення →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <img src="logo-white.png" alt="Dos Tierras, Dos Soles" width="600" height="332" loading="lazy">
+        <p data-i="ft.p">Об'єднуємо українську діаспору та іспанське суспільство з 2017 року. Гран-Канарія · Тенерифе · Фуертевентура.</p>
+      </div>
+      <div><h4 data-i="ft.org">Організація</h4><ul>
+        <li><a href="#about" data-i="nav.about">Про нас</a></li><li><a href="#founder" data-i="nav.founder">Засновниця</a></li><li><a href="#team" data-i="nav.team">Команда</a></li><li><a href="#projects" data-i="nav.projects">Проєкти</a></li><li><a href="#docs" data-i="nav.docs">Документи</a></li></ul></div>
+      <div><h4 data-i="ft.you">Для тебе</h4><ul>
+        <li><a href="#help" data-i="nav.help">Допомога</a></li><li><a href="#coaching" data-i="nav.career">Резюме</a></li><li><a href="https://www.olaacademy.online" target="_blank" rel="noopener">OLacademy</a></li><li><a href="#volunteer" data-i="ft.vol">Волонтерство</a></li><li><a href="#donate" data-i="nav.donate">Підтримати</a></li><li><a href="#contact" data-i="nav.contact">Контакти</a></li></ul></div>
+      <div><h4 data-i="ft.soc">Соцмережі</h4><ul>
+        <li><a href="https://www.instagram.com/ucranianos_en_canarias" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/2tierras2soles" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://t.me/asociaciya_ukrainciv_grancanaria" target="_blank" rel="noopener">Telegram</a></li>
+        <li><a href="https://www.youtube.com/channel/UCygIWmzMQDkCuzSkgqB2Gzw" target="_blank" rel="noopener">YouTube</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> <span data-i="ft.copy">Асоціація «Дві Землі, Два Сонця»</span></span>
+      <span>NIF G76351097 · <span data-i="addr.city">Лас-Пальмас-де-Гран-Канарія, Іспанія</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var I18N={
+en:{
+"doc.namev":"UCRANIA EN CANARIAS POR LA AMISTAD: DOS TIERRAS DOS SOLES","addr.city":"Las Palmas de Gran Canaria, Spain","addr.short":"Calle Fuente 8, Las Palmas de Gran Canaria","addr.full":"Calle Fuente 8, Las Palmas de Gran Canaria, Spain","loc.fv":"Fuerteventura","loc.tf":"Tenerife","loc.gc":"Gran Canaria","c.note":"If needed, we can also help you write a CV.","f.ig":"Instagram","f.mail":"Email","team.adv":"Advisors & consultants","team.reps":"Association representatives","r.culture":"Cultural advisor","r.fashion":"Design and fashion advisor","r.sport":"Association sports consultant","r.kulyk":"Association representative in Ukraine for cultural affairs","r.lutsenko":"Advisor on strategic international partnerships and EU projects","f.r3":"Member of the <a class=\"ln\" href=\"https://womafreesm.com\" target=\"_blank\" rel=\"noopener\"><strong>Womafreesm</strong></a> Global Executive Board and Regional Director for Spain and Spanish-speaking countries","f.r4":"Founder of the online Spanish school <a class=\"ln\" href=\"https://www.olaacademy.online\" target=\"_blank\" rel=\"noopener\"><strong>OLacademy</strong></a>","f.more":"More about Olesya <a href=\"https://www.olesyalylak.online\" target=\"_blank\" rel=\"noopener\">here</a>","c.kicker":"Association services","c.h2":"Review of your <span class=\"hl\">CV</span>","c.lead":"Looking for a job in Spain? We'll check your existing CV so it <span class=\"hl-y\">works for you</span>.","c.cap":"Iryna Lutsenko<span>Career coach for women · association advisor</span>","c.h3":"Express CV review<br><span class=\"oval\">20 minutes</span>","c.sub":"We'll look at your CV and find what exactly keeps employers from seeing your experience.","c.wa":"Book on WhatsApp","c.cta":"👉 Book on WhatsApp","s.kicker":"Spanish school","s.h2":"<span class=\"hl\">OLacademy</span> — online Spanish school","s.lead":"An online Spanish school <span class=\"hl\">for adults</span>, based in Gran Canaria. Founded by the association president, Olesya Lylak-Chyzhovych.","s.cta":"Go to the school website →","s.1":"<strong>Levels A0 to C1</strong> — from zero to fluency","s.2":"<strong>Small groups of 4–6</strong> or one-to-one lessons on a flexible schedule","s.3":"<strong>Speaking practice</strong> from the very first lessons","s.4":"<strong>Official ECCAEDU diploma</strong> (A1–C1) included in every package",
+"nav.about":"About","nav.founder":"Founder","nav.team":"Team","nav.projects":"Projects","nav.help":"Help","nav.career":"CV help","nav.docs":"Documents","nav.contact":"Contact","nav.donate":"Donate",
+"hero.kicker":"Ukrainian Community of the Canary Islands","hero.h1":"Two Lands,<br><span class=\"hl-y\">Two Suns</span>","hero.sub":"We unite the Ukrainian diaspora and Spanish society in the Canary Islands. Supporting, protecting, developing — <span class=\"hl-y\">since 2017</span>.","hero.cta1":"👉 Support us","hero.cta2":"Get help","hero.cta3":"Get involved","hero.tile1":"community members","hero.tile2s":"islands","hero.tile2":"islands: Gran Canaria, Tenerife, Fuerteventura",
+"stat.1":"founded","stat.2":"members","stat.3":"islands","stat.4":"key initiatives",
+"about.kicker":"About us","about.h2":"Who we are and <span class=\"hl\">why</span> we're here","about.lead":"The leading organisation of the <span class=\"hl-y\">Ukrainian community in the Canary Islands</span>, founded in 2017 by Olesya Lylak-Chyzhovych.",
+"val.1t":"Solidarity","val.1":"By your side in the hardest moments, for everyone who needs support","val.2t":"Integration","val.2":"Helping people find their place in Spanish society without losing themselves","val.3t":"Identity","val.3":"Preserving language, culture and traditions for future generations","val.4t":"Development","val.4":"Supporting women's leadership, entrepreneurship and digital skills",
+"mission.t":"Our mission","mission.p":"We <span class=\"hl-y\">unite the Ukrainian diaspora and Spanish society</span>, helping migrants find their way in a new environment, build <span class=\"hl-y\">cultural dialogue</span> and create <span class=\"hl-y\">a resilient, supportive community</span>.",
+"fact.reg":"Registered","fact.statute":"statutes updated 10.06.2023","fact.lang":"Languages","fact.langv":"Ukrainian, Spanish, English","fact.mem":"Memberships","fact.memv":"The association is a member of the World Federation of Ukrainian Women's Organizations (WFUWO) · Ukrainian World Congress · Federation of Ukrainian Associations of Spain","fact.addr":"Address",
+"quote":"“Two lands — one people. We build the future holding <span class=\"hl-y\">both suns</span> in our hearts.”",
+"f.kicker":"Founder & President","f.name":"Olesya Lylak-Chyzhovych","f.role":"President of the “Two Lands, Two Suns” association · founder","f.bio":"Originally from the Lviv region. For over 30 years — <span class=\"hl\">at the crossroads of two cultures</span>, Ukraine and Spain. Philologist (studied in Ukraine and at the University of Barcelona), sworn translator and legal expert in the Spanish system. Works in Ukrainian, Spanish, Italian and English. In 2017 she founded the association in Gran Canaria and has led it ever since.",
+"f.r1":"President of the women's association <strong>“Two Lands, Two Suns”</strong>","f.r2":"Partner of the <strong>Chamber of Commerce and Industry of Ukraine</strong>","f.r5":"Contributor to “Emigrant Radio” (Kyiv) since 2020",
+"f.t1":"Awards","f.a1":"<strong>2022</strong> — Spanish Government distinction for supporting refugee women and preventing gender-based violence","f.a2":"<strong>2022</strong> — Premios Menina","f.a3":"<strong>2026</strong> — member of the Real Sociedad Económica de Amigos del País (the only Ukrainian among its full members)","f.a4":"<strong>2026</strong> — Charter 100 / Premios ASOCLUB award for social work",
+"f.t2":"Milestones","f.s1":"<strong>2017</strong> — founded the “Two Lands, Two Suns” association","f.s2":"<strong>2022</strong> — supported the first Ukrainian weekend school in Gran Canaria","f.s3":"<strong>2022</strong> — invited by the Embassy of Ukraine to the opening of the Ukrainian art exhibition at the Thyssen-Bornemisza Museum (Madrid)","f.s4":"<strong>2023</strong> — initiated the twinning of La Laguna and Lviv","f.s5":"<strong>2023–2024</strong> — cooperation with the Cabildo de Gran Canaria, the councils of Las Palmas and Valsequillo, and ECCA","f.s6":"<strong>2025</strong> — the association took baby homes in Khmelnytskyi under its care","f.site":"About Olesya →",
+"team.kicker":"Team","team.h2":"People who <span class=\"hl\">make change</span>","team.board":"Board & coordination",
+"n.olesya":"Olesya Lylak-Chyzhovych","n.krupska":"Liudmyla Krupska","n.lysenko":"Yana Lysenko","n.nlylak":"Nadiia Lylak","n.marini":"Krystyna Marini","n.lutsenko":"Iryna Lutsenko","n.pavliv":"Natalia Pavliv","n.zhem":"Iryna Zhemchuhova","n.kokh":"Olena Kokhnenko","n.pol":"Tetiana Polishchuk","n.partala":"Ilona Partala","n.bulakh":"Yevheniia Bulakh","n.cherniy":"Sofiia Cherniy","n.marchenko":"Liudmyla Marchenko","n.zvanska":"Olena Zvanska","n.sorochan":"Anna Sorochan","n.kulyk":"Tetiana Kulyk","n.bru":"Inna Bru","team.members":"Association team","r.member":"Team member",
+"r.president":"President · founder","r.vp":"Vice-President","r.secretary":"Secretary","r.treasurer":"Treasurer","r.pavliv":"Association representative on Fuerteventura","r.intl":"International affairs advisor","r.pr":"Public relations advisor","r.edu":"Education advisor","r.tour":"Tourism advisor","r.psy":"Association psychologist","r.photo":"Association photographer",
+"p.kicker":"Our work","p.h2":"Our projects <span class=\"hl\">and initiatives</span>","p.s1":"Cultural diplomacy","p.1c":"Culture · 28.11.2022","p.1t":"Ukrainian art at the Thyssen-Bornemisza Museum","p.1":"The exhibition in Madrid was organised by the Embassy of Ukraine in Spain. The Embassy invited the association's president, Olesya Lylak-Chyzhovych, to the official opening.","p.2t":"International Festival of Cultures","p.2":"Presenting Ukrainian culture, art and traditions to the Valsequillo community.","p.3c":"Peace & solidarity · 21.09.2024","p.3t":"International Day of Peace","p.3":"Taking part in Cabildo de Gran Canaria events for peace and solidarity.",
+"p.s2":"Social integration","p.4c":"Education · August 2024","p.4t":"Spanish courses with ECCA","p.4":"Training and basic-level Spanish diplomas for better adaptation in Spain.","p.5c":"Ongoing","p.5t":"Information & legal assistance","p.5":"Explanatory, administrative and humanitarian help for displaced people.","p.6c":"Partnership · September 2024","p.6t":"“Culture of Peace”","p.6":"Meeting with the Mayor of Las Palmas — cooperation to support migrants and community networks.",
+"p.s3":"Fashion & art","p.7c":"Fashion · July 2025","p.7t":"First Ukrainian bridal fashion show in Gran Canaria","p.7":"With the support of the Cabildo de Gran Canaria, the association invited Ukrainian designer Liudmyla Shanska, who presented a collection of wedding dresses and accessories.","p.8c":"Record · 23.08.2024","p.8t":"A flag of 300 wheat ears","p.8":"A symbolic flag at the Gabinete Literario made from Zarmilcas products.","p.9c":"Charity · 28.08.2024","p.9t":"“Dove of Peace” collective painting","p.9":"A painting for a charity auction supporting burn units in Ukrainian hospitals.",
+"p.s4":"Charity & humanitarian","p.10c":"Award · 25.11.2022","p.10t":"Spanish Government award","p.10":"Recognition for helping refugee women and preventing gender-based violence.","p.11c":"Medicine · July 2024","p.11t":"Medical partnership ICOT × BSMU","p.11":"Exchange programmes for rehabilitation of wounded soldiers and neurological treatment.","p.12c":"International cooperation · 17.07.2024","p.12t":"Ukrainian Ombudsman's Office","p.12":"Contributing to the state strategy for Ukrainians' return home.",
+"h.kicker":"For you","h.h2":"How we help <span class=\"hl-y\">Ukrainians</span>","h.lead":"Whether you've just arrived in the Canaries or have lived here for years — <span class=\"hl-y\">we're here for you</span>.","h.1t":"Legal assistance","h.1":"Advice on residence, status, registration and labour rights. Sworn-translator experience in the Spanish system.","h.2t":"Social adaptation","h.2":"Housing, Spanish regulations, opening a bank account, documents.","h.3t":"Job search","h.3":"Job-search training, CV writing, preparing for the Spanish labour market.","h.4t":"Education & language","h.4":"Support for children's education, resources for learning Spanish, courses with ECCA.","h.5t":"Psychological support","h.5":"Connection with specialists. Our association psychologist Yevheniia Bulakh (Tenerife) is ready to help.","h.6t":"Humanitarian aid","h.6":"Coordinating humanitarian initiatives and distributing aid to those who need it most.","h.cta":"👉 Ask for help",
+"c.1":"Analysis of your current situation and career goals","c.2":"Strengths and opportunities in the labour market","c.3":"Career orientation for teenagers — finding a calling together","c.4":"Job-search or adaptation strategy in Spain","c.5":"Help with LinkedIn, CV and interview preparation",
+"d.kicker":"Support","d.h2":"Every euro <span class=\"hl\">makes a difference</span>","d.lead":"Your support helps us <span class=\"hl-y\">support Ukrainians in the Canaries</span> and build a stronger community.","d.custom":"Custom","d.ibant":"IBAN for transfers (Spain · SEPA)","d.copy":"Copy","d.rec":"Recipient","d.ref":"Reference","d.refv":"Donation — [your name]","d.confirm":"Confirm your transfer by email","d.u1t":"Legal assistance","d.u1":"Free consultations for displaced people","d.u2t":"Cultural events","d.u2":"Festivals, exhibitions, traditions","d.u3t":"Humanitarian aid","d.u3":"Support for those most in need",
+"doc.kicker":"Transparency","doc.h2":"Documents <span class=\"hl\">& reports</span>","doc.lead":"We are open with our community, donors and partners. <span class=\"hl-y\">Transparency is our duty</span>.","doc.1":"Association statutes","doc.2":"Registration certificate","doc.3":"Financial report 2024","doc.3s":"Annual financial report","doc.4":"Annual report 2024","doc.4s":"Activity report","doc.dl":"↓ Download PDF","doc.wait":"In preparation","doc.name":"Official name",
+"pa.kicker":"Partners","pa.h2":"Together we are <span class=\"hl\">stronger</span>","pa.1t":"Local government","pa.1":"Strategic partnership with the island government","pa.2t":"Technology institute","pa.2":"Digital skills and technology","pa.3t":"International fairs","pa.3":"Fairs and exhibitions","pa.4t":"International federation","pa.4":"The association is a member of the World Federation of Ukrainian Women's Organizations","pa.5t":"Diaspora organisation","pa.5n":"Ukrainian World Congress","pa.5":"Global Ukrainian network","pa.6t":"Education partner","pa.6":"Spanish courses for migrants",
+"v.kicker":"Get involved","v.h2":"Become part of the <span class=\"hl-y\">community</span>","v.lead":"<span class=\"hl-y\">Our strength is people</span>. Everyone who joins makes the association stronger.","v.1":"Volunteers at cultural events","v.2":"Translators (Ukrainian, Spanish, English)","v.3":"PR and social media specialists","v.4":"Lawyers and legal consultants","v.5":"Teachers and methodologists","v.6":"Coaches and career consultants","v.ft":"Leave your details","v.name":"Full name","v.how":"How can you help?","v.o1":"Event volunteer","v.o2":"Translator","v.o3":"Legal consultant","v.o4":"Coach / career consultant","v.o5":"Teacher / methodologist","v.o6":"Other","v.about":"Tell us about yourself","v.send":"Send →",
+"ct.kicker":"Contact","ct.h2":"Get <span class=\"hl\">in touch</span>","ct.addr":"Address","ct.phone":"Phone / WhatsApp — association president","ct.ft":"Write to us","ct.name":"Your name","ct.msg":"Message","ct.send":"Send message →",
+"ft.p":"Uniting the Ukrainian diaspora and Spanish society since 2017. Gran Canaria · Tenerife · Fuerteventura.","ft.org":"Organisation","ft.you":"For you","ft.vol":"Volunteering","ft.soc":"Social media","ft.copy":"“Two Lands, Two Suns” Association"
+},
+es:{
+"doc.namev":"UCRANIA EN CANARIAS POR LA AMISTAD: DOS TIERRAS DOS SOLES","addr.city":"Las Palmas de Gran Canaria, España","addr.short":"Calle Fuente 8, Las Palmas de Gran Canaria","addr.full":"Calle Fuente 8, Las Palmas de Gran Canaria, España","loc.fv":"Fuerteventura","loc.tf":"Tenerife","loc.gc":"Gran Canaria","c.note":"Si lo necesitas, también te ayudamos a redactarlo.","f.ig":"Instagram","f.mail":"Correo","team.adv":"Asesoras y consultoras","team.reps":"Representantes de la asociación","r.culture":"Asesora cultural","r.fashion":"Asesora de diseño y moda","r.sport":"Consultora deportiva de la asociación","r.kulyk":"Representante de la asociación en Ucrania para asuntos culturales","r.lutsenko":"Asesora de alianzas estratégicas internacionales y proyectos europeos","f.r3":"Miembro del Global Executive Board de <a class=\"ln\" href=\"https://womafreesm.com\" target=\"_blank\" rel=\"noopener\"><strong>Womafreesm</strong></a> y directora regional para España y los países hispanohablantes","f.r4":"Fundadora de la escuela de español online <a class=\"ln\" href=\"https://www.olaacademy.online\" target=\"_blank\" rel=\"noopener\"><strong>OLacademy</strong></a>","f.more":"Más sobre Olesya <a href=\"https://www.olesyalylak.online\" target=\"_blank\" rel=\"noopener\">aquí</a>","c.kicker":"Servicios de la asociación","c.h2":"Revisión de tu <span class=\"hl\">currículum</span>","c.lead":"¿Buscas trabajo en España? Revisamos tu currículum para que <span class=\"hl-y\">trabaje a tu favor</span>.","c.cap":"Iryna Lutsenko<span>Coach de carrera para mujeres · asesora de la asociación</span>","c.h3":"Revisión exprés del CV<br><span class=\"oval\">20 minutos</span>","c.sub":"Revisamos tu currículum y encontramos qué impide exactamente que el empleador vea tu experiencia.","c.wa":"Reserva por WhatsApp","c.cta":"👉 Reservar por WhatsApp","s.kicker":"Escuela de español","s.h2":"<span class=\"hl\">OLacademy</span> — escuela online de español","s.lead":"Escuela de español online <span class=\"hl\">para adultos</span>, con sede en Gran Canaria. Fundada por la presidenta de la asociación, Olesya Lylak-Chyzhovych.","s.cta":"Ir a la web de la escuela →","s.1":"<strong>Niveles A0 a C1</strong> — de cero a la fluidez","s.2":"<strong>Grupos reducidos de 4–6 personas</strong> o clases individuales con horario flexible","s.3":"<strong>Práctica de conversación</strong> desde las primeras clases","s.4":"<strong>Diploma oficial ECCAEDU</strong> (A1–C1) incluido en cada paquete",
+"nav.about":"Nosotros","nav.founder":"Fundadora","nav.team":"Equipo","nav.projects":"Proyectos","nav.help":"Ayuda","nav.career":"Currículum","nav.docs":"Documentos","nav.contact":"Contacto","nav.donate":"Donar",
+"hero.kicker":"Comunidad ucraniana de las Islas Canarias","hero.h1":"Dos Tierras,<br><span class=\"hl-y\">Dos Soles</span>","hero.sub":"Unimos la diáspora ucraniana y la sociedad española en las Islas Canarias. Apoyamos, protegemos, desarrollamos — <span class=\"hl-y\">desde 2017</span>.","hero.cta1":"👉 Apóyanos","hero.cta2":"Pedir ayuda","hero.cta3":"Únete","hero.tile1":"miembros de la comunidad","hero.tile2s":"islas","hero.tile2":"islas: Gran Canaria, Tenerife, Fuerteventura",
+"stat.1":"año de fundación","stat.2":"miembros","stat.3":"islas","stat.4":"iniciativas clave",
+"about.kicker":"Sobre nosotros","about.h2":"Quiénes somos y <span class=\"hl\">por qué</span> estamos aquí","about.lead":"La principal organización de la <span class=\"hl-y\">comunidad ucraniana en las Islas Canarias</span>, fundada en 2017 por Olesya Lylak-Chyzhovych.",
+"val.1t":"Solidaridad","val.1":"A tu lado en los momentos más difíciles, para quien necesite apoyo","val.2t":"Integración","val.2":"Ayudamos a encontrar un lugar en la sociedad española sin perder la identidad","val.3t":"Identidad","val.3":"Preservamos el idioma, la cultura y las tradiciones para las próximas generaciones","val.4t":"Desarrollo","val.4":"Apoyamos el liderazgo femenino, el emprendimiento y las competencias digitales",
+"mission.t":"Nuestra misión","mission.p":"<span class=\"hl-y\">Unimos la diáspora ucraniana y la sociedad española</span>, ayudando a las personas migrantes a orientarse en su nuevo entorno, a establecer un <span class=\"hl-y\">diálogo cultural</span> y a crear una <span class=\"hl-y\">comunidad resiliente y solidaria</span>.",
+"fact.reg":"Registro","fact.statute":"estatutos actualizados el 10.06.2023","fact.lang":"Idiomas","fact.langv":"Ucraniano, español, inglés","fact.mem":"Membresías","fact.memv":"La asociación es miembro de la Federación Mundial de Organizaciones de Mujeres Ucranianas (WFUWO) · Congreso Mundial Ucraniano · Federación de Asociaciones Ucranianas de España","fact.addr":"Dirección",
+"quote":"«Dos tierras — un pueblo. Construimos el futuro con <span class=\"hl-y\">ambos soles</span> en el corazón.»",
+"f.kicker":"Fundadora y presidenta","f.name":"Olesya Lylak-Chyzhovych","f.role":"Presidenta de la asociación «Dos Tierras, Dos Soles» · fundadora","f.bio":"Originaria de la región de Leópolis. Más de 30 años <span class=\"hl\">en la intersección de dos culturas</span>: Ucrania y España. Filóloga (formada en Ucrania y en la Universidad de Barcelona), traductora jurada y experta legal en el sistema español. Trabaja en ucraniano, español, italiano e inglés. En 2017 fundó la asociación en Gran Canaria y la preside desde entonces.",
+"f.r1":"Presidenta de la asociación de mujeres <strong>«Dos Tierras, Dos Soles»</strong>","f.r2":"Socia de la <strong>Cámara de Comercio e Industria de Ucrania</strong>","f.r5":"Colaboradora de «Radio Emigrant» (Kyiv) desde 2020",
+"f.t1":"Reconocimientos","f.a1":"<strong>2022</strong> — distinción del Gobierno de España por el apoyo a mujeres refugiadas y la prevención de la violencia de género","f.a2":"<strong>2022</strong> — Premios Menina","f.a3":"<strong>2026</strong> — miembro de la Real Sociedad Económica de Amigos del País (la única ucraniana entre sus miembros de número)","f.a4":"<strong>2026</strong> — premio Charter 100 / Premios ASOCLUB por su labor social",
+"f.t2":"Hitos","f.s1":"<strong>2017</strong> — fundación de la asociación «Dos Tierras, Dos Soles»","f.s2":"<strong>2022</strong> — apoyo a la primera escuela ucraniana de fin de semana en Gran Canaria","f.s3":"<strong>2022</strong> — invitada por la Embajada de Ucrania a la inauguración de la exposición de arte ucraniano en el Museo Thyssen-Bornemisza (Madrid)","f.s4":"<strong>2023</strong> — impulsó el hermanamiento de La Laguna y Leópolis","f.s5":"<strong>2023–2024</strong> — cooperación con el Cabildo de Gran Canaria, los ayuntamientos de Las Palmas y Valsequillo y ECCA","f.s6":"<strong>2025</strong> — la asociación apadrina casas cuna en Jmelnitski","f.site":"Sobre Olesya →",
+"team.kicker":"Equipo","team.h2":"Las personas que <span class=\"hl\">crean el cambio</span>","team.board":"Junta directiva y coordinación",
+"n.olesya":"Olesya Lylak-Chyzhovych","n.krupska":"Liudmyla Krupska","n.lysenko":"Yana Lysenko","n.nlylak":"Nadiia Lylak","n.marini":"Krystyna Marini","n.lutsenko":"Iryna Lutsenko","n.pavliv":"Natalia Pavliv","n.zhem":"Iryna Zhemchuhova","n.kokh":"Olena Kokhnenko","n.pol":"Tetiana Polishchuk","n.partala":"Ilona Partala","n.bulakh":"Yevheniia Bulakh","n.cherniy":"Sofiia Cherniy","n.marchenko":"Liudmyla Marchenko","n.zvanska":"Olena Zvanska","n.sorochan":"Anna Sorochan","n.kulyk":"Tetiana Kulyk","n.bru":"Inna Bru","team.members":"Equipo de la asociación","r.member":"Miembro del equipo",
+"r.president":"Presidenta · fundadora","r.vp":"Vicepresidenta","r.secretary":"Secretaria","r.treasurer":"Tesorera","r.pavliv":"Representante de la asociación en Fuerteventura","r.intl":"Asesora de asuntos internacionales","r.pr":"Asesora de relaciones públicas","r.edu":"Asesora de educación","r.tour":"Asesora de turismo","r.psy":"Psicóloga de la asociación","r.photo":"Fotógrafa de la asociación",
+"p.kicker":"Actividades","p.h2":"Nuestros proyectos <span class=\"hl\">e iniciativas</span>","p.s1":"Diplomacia cultural","p.1c":"Cultura · 28.11.2022","p.1t":"Arte ucraniano en el Museo Thyssen-Bornemisza","p.1":"La exposición en Madrid fue organizada por la Embajada de Ucrania en España. La Embajada invitó a la presidenta de la asociación, Olesya Lylak-Chyzhovych, a la inauguración oficial.","p.2t":"Festival Internacional de Culturas","p.2":"Presentación de la cultura, el arte y las tradiciones ucranianas a la comunidad de Valsequillo.","p.3c":"Paz y solidaridad · 21.09.2024","p.3t":"Día Internacional de la Paz","p.3":"Participación en los actos del Cabildo de Gran Canaria en favor de la paz y la solidaridad.",
+"p.s2":"Integración social","p.4c":"Educación · agosto 2024","p.4t":"Cursos de español con ECCA","p.4":"Formación y entrega de diplomas de nivel básico de español para una mejor adaptación en España.","p.5c":"Continuo","p.5t":"Asistencia informativa y legal","p.5":"Ayuda explicativa, administrativa y humanitaria para personas desplazadas.","p.6c":"Colaboración · septiembre 2024","p.6t":"«Cultura de Paz»","p.6":"Reunión con el alcalde de Las Palmas — cooperación para apoyar a migrantes y redes intercomunitarias.",
+"p.s3":"Moda y arte","p.7c":"Moda · julio 2025","p.7t":"Primer desfile de moda nupcial ucraniana en Gran Canaria","p.7":"Con el apoyo del Cabildo de Gran Canaria, la asociación invitó a la diseñadora ucraniana Liudmyla Shanska, que presentó una colección de vestidos de novia y complementos.","p.8c":"Récord · 23.08.2024","p.8t":"Bandera de 300 espigas de trigo","p.8":"Bandera simbólica en el Gabinete Literario con productos de la marca Zarmilcas.","p.9c":"Benéfico · 28.08.2024","p.9t":"Pintura colectiva «Paloma de la Paz»","p.9":"Cuadro para una subasta benéfica a favor de las unidades de quemados de hospitales ucranianos.",
+"p.s4":"Caridad y ayuda humanitaria","p.10c":"Premio · 25.11.2022","p.10t":"Distinción del Gobierno de España","p.10":"Reconocimiento por ayudar a mujeres refugiadas y prevenir la violencia de género.","p.11c":"Medicina · julio 2024","p.11t":"Alianza médica ICOT × BSMU","p.11":"Programas de intercambio para la rehabilitación de militares heridos y el tratamiento neurológico.","p.12c":"Cooperación internacional · 17.07.2024","p.12t":"Oficina del Defensor del Pueblo de Ucrania","p.12":"Participación en la estrategia estatal para el retorno de los ucranianos a casa.",
+"h.kicker":"Para ti","h.h2":"Cómo ayudamos a los <span class=\"hl-y\">ucranianos</span>","h.lead":"Si acabas de llegar a Canarias o llevas años aquí — <span class=\"hl-y\">estamos contigo</span>.","h.1t":"Asistencia legal","h.1":"Asesoramiento sobre residencia, estatus, empadronamiento y derechos laborales. Experiencia como traductora jurada en el sistema español.","h.2t":"Adaptación social","h.2":"Vivienda, normativa española, cuenta bancaria, documentos.","h.3t":"Búsqueda de empleo","h.3":"Formación en búsqueda de empleo, CV, preparación para el mercado laboral español.","h.4t":"Educación e idioma","h.4":"Apoyo a la educación infantil, recursos para aprender español, cursos con ECCA.","h.5t":"Apoyo psicológico","h.5":"Contacto con especialistas. Nuestra psicóloga Yevheniia Bulakh (Tenerife) está lista para ayudarte.","h.6t":"Ayuda humanitaria","h.6":"Coordinación de iniciativas humanitarias y reparto de ayuda a quienes más la necesitan.","h.cta":"👉 Pedir ayuda",
+"c.1":"Análisis de tu situación actual y objetivos profesionales","c.2":"Fortalezas y oportunidades en el mercado laboral","c.3":"Orientación vocacional para adolescentes","c.4":"Estrategia de búsqueda de empleo o adaptación en España","c.5":"Ayuda con LinkedIn, CV y entrevistas",
+"d.kicker":"Apoyo","d.h2":"Cada euro <span class=\"hl\">marca la diferencia</span>","d.lead":"Tu apoyo nos ayuda a <span class=\"hl-y\">apoyar a los ucranianos en Canarias</span> y a construir una comunidad más fuerte.","d.custom":"Otra cantidad","d.ibant":"IBAN para transferencias (España · SEPA)","d.copy":"Copiar","d.rec":"Beneficiario","d.ref":"Concepto","d.refv":"Donación — [tu nombre]","d.confirm":"Confirmar la transferencia por correo","d.u1t":"Asistencia legal","d.u1":"Consultas gratuitas para personas desplazadas","d.u2t":"Eventos culturales","d.u2":"Festivales, exposiciones, tradiciones","d.u3t":"Ayuda humanitaria","d.u3":"Apoyo a quienes más lo necesitan",
+"doc.kicker":"Transparencia","doc.h2":"Documentos <span class=\"hl\">e informes</span>","doc.lead":"Somos transparentes con nuestra comunidad, donantes y socios. <span class=\"hl-y\">La transparencia es nuestro deber</span>.","doc.1":"Estatutos de la asociación","doc.2":"Certificado de registro","doc.3":"Informe financiero 2024","doc.3s":"Informe financiero anual","doc.4":"Memoria anual 2024","doc.4s":"Informe de actividades","doc.dl":"↓ Descargar PDF","doc.wait":"En preparación","doc.name":"Nombre oficial",
+"pa.kicker":"Socios","pa.h2":"Juntos somos <span class=\"hl\">más fuertes</span>","pa.1t":"Gobierno local","pa.1":"Alianza estratégica con el gobierno insular","pa.2t":"Instituto tecnológico","pa.2":"Competencias digitales y tecnología","pa.3t":"Ferias internacionales","pa.3":"Ferias y exposiciones","pa.4t":"Federación internacional","pa.4":"La asociación es miembro de la Federación Mundial de Organizaciones de Mujeres Ucranianas","pa.5t":"Organización de la diáspora","pa.5n":"Congreso Mundial Ucraniano","pa.5":"Red ucraniana global","pa.6t":"Socio educativo","pa.6":"Cursos de español para migrantes",
+"v.kicker":"Únete","v.h2":"Forma parte de la <span class=\"hl-y\">comunidad</span>","v.lead":"<span class=\"hl-y\">Nuestra fuerza son las personas</span>. Cada persona que se une hace más fuerte a la asociación.","v.1":"Voluntariado en eventos culturales","v.2":"Traductores (ucraniano, español, inglés)","v.3":"Especialistas en PR y redes sociales","v.4":"Abogados y asesores legales","v.5":"Docentes y metodólogos","v.6":"Coaches y orientadores profesionales","v.ft":"Déjanos tus datos","v.name":"Nombre y apellidos","v.how":"¿Cómo puedes ayudar?","v.o1":"Voluntariado en eventos","v.o2":"Traducción","v.o3":"Asesoría legal","v.o4":"Coach / orientación profesional","v.o5":"Docente / metodología","v.o6":"Otro","v.about":"Cuéntanos sobre ti","v.send":"Enviar →",
+"ct.kicker":"Contacto","ct.h2":"Ponte <span class=\"hl\">en contacto</span>","ct.addr":"Dirección","ct.phone":"Teléfono / WhatsApp — presidenta de la asociación","ct.ft":"Escríbenos","ct.name":"Tu nombre","ct.msg":"Mensaje","ct.send":"Enviar mensaje →",
+"ft.p":"Uniendo la diáspora ucraniana y la sociedad española desde 2017. Gran Canaria · Tenerife · Fuerteventura.","ft.org":"Organización","ft.you":"Para ti","ft.vol":"Voluntariado","ft.soc":"Redes sociales","ft.copy":"Asociación «Dos Tierras, Dos Soles»"
+}};
+var UK={},LANG='uk';
+document.querySelectorAll('[data-i]').forEach(function(el){if(!(el.dataset.i in UK))UK[el.dataset.i]=el.innerHTML;});
+function setLang(l){
+  LANG=l;
+  document.querySelectorAll('[data-i]').forEach(function(el){var k=el.dataset.i;var t=l==='uk'?UK[k]:I18N[l][k];if(t!=null)el.innerHTML=t;});
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===l);});
+  document.documentElement.lang=l;
+  try{localStorage.setItem('lang',l);}catch(e){}
+  setWA(l);
+}
+document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
+try{var s=localStorage.getItem('lang');if(s&&s!=='uk')setLang(s);}catch(e){}
+
+document.getElementById('year').textContent=new Date().getFullYear();
+var WA={uk:'Вітаю! Хочу записатись на експрес-розбір CV',en:"Hello! I'd like to book an express CV review",es:'¡Hola! Quiero reservar una revisión exprés de mi CV'};
+function setWA(l){var a=document.getElementById('waCV');if(a)a.href='https://wa.me/380683521151?text='+encodeURIComponent(WA[l]||WA.uk);}
+document.addEventListener('pointerdown',function(e){
+  var el=e.target.closest('.tap,.pill,.amount-btn,.mosaic>*');if(!el)return;
+  el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');
+  if(el.matches('.member,.mosaic>img'))return;
+  var r=el.getBoundingClientRect(),d=document.createElement('span');d.className='ripple';
+  d.style.left=(e.clientX-r.left)+'px';d.style.top=(e.clientY-r.top)+'px';el.appendChild(d);
+  setTimeout(function(){d.remove();},700);
+});
+document.addEventListener('animationend',function(e){if(e.animationName==='pop')e.target.classList.remove('pop');});
+document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');});});
+
+document.querySelectorAll('.amount-btn').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.amount-btn').forEach(function(x){x.classList.remove('active')});b.classList.add('active');});});
+
+document.getElementById('copyBtn').addEventListener('click',function(){
+  var btn=this,orig=btn.innerHTML;
+  var done=function(){btn.textContent='✓';setTimeout(function(){btn.innerHTML=orig;},1800);};
+  if(navigator.clipboard)navigator.clipboard.writeText('ES1421007008550200216749').then(done,done);else done();
+});
+
+function mailForm(id,subject){
+  document.getElementById(id).addEventListener('submit',function(e){
+    e.preventDefault();var f=e.target,b='';
+    ['name','email','role','msg'].forEach(function(n){if(f[n])b+=n.toUpperCase()+': '+f[n].value+'\n';});
+    location.href='mailto:olesyalylak@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(b);
+  });
+}
+mailForm('volForm','Волонтерство / Voluntariado');
+mailForm('contactForm','Повідомлення з сайту / Mensaje desde la web');
+
+if('IntersectionObserver' in window){
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.08});
+  document.querySelectorAll('.fade').forEach(function(el){obs.observe(el);});
+}else{document.querySelectorAll('.fade').forEach(function(el){el.classList.add('in');});}
+</script>
+</body>
+</html>
